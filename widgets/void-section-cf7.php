@@ -298,9 +298,9 @@ protected function _register_controls() {
 		static $v_veriable=0;
 
 		$settings = $this->get_settings();
-		var_dump($settings['cf7']);
+		
         if(!empty($settings['cf7'])){
-    	   echo'<div class="elementor-shortcode void-cf7-'.$v_veriable.'">';
+    	   echo'<div class="void-cf7-form-widget-wrapper elementor-shortcode void-cf7-'.$v_veriable.'" data-void-cf7-contact-form-id="'. $settings['cf7'] .'">';
                 echo do_shortcode('[contact-form-7 id="'.$settings['cf7'].'"]');    
            echo '</div>';  
     	}
