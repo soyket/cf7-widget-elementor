@@ -18,25 +18,33 @@
         close = modal.find('.cf7-widget-elementor-modal-close');
         iframe = modal.find('.cf7-widget-elementor-modal-iframe');
 
-        close.on('click', function(){
-            modal.hide();
-        });
-
-        // windowParent.jQuery('body').onclick = function(event) {
-        //     console.log('body click');
-        //     if (event.target == modal) {
-        //         modal.hide();
-        //     }
-        // }
-
     };
 
+    // elementor edit panel call back function from hook
     var eventCatchFunction = function (panel, model, view) {
+        // form edit button element selector
         var $elementEdit = panel.$el.find( '.void-cf7-edit-form-btn' ).find( '#void-cf7-edit-form-btn' );
+
+        // elementor update preview button selector
+        var elUpdateButtonPreview = panel.$el.find('.elementor-update-preview');
+        // hide button from edit panel
+        elUpdateButtonPreview.hide();
+
+        // form edit button click event function
         $elementEdit.on('click', function(e){
             e.preventDefault();
-            iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7&post='+formId+'&active-tab=0');
+            // insert src in iframe with edit link of selected form
+            iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7&post='+formId+'&action=edit');
+            // open modal with contact form edit url
             modal.show();
+            // modal close button click event
+            close.on('click', function(){
+                // modal closed
+                modal.hide();
+                // reload frondend panel to show updated data
+                panel.$el.find('[data-setting="cf7"]').trigger('change');
+                elUpdateButtonPreview.find('.elementor-update-preview-button').trigger('click');
+            });
         });
 
         var $elementAdd = panel.$el.find( '.void-cf7-add-form-btn' ).find( '#void-cf7-add-form-btn' );
@@ -44,6 +52,11 @@
             e.preventDefault();
             iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7-new');
             modal.show();
+            close.on('click', function(){
+                modal.hide();
+                $('[data-setting="cf7"]').trigger('change');
+                $('.elementor-update-preview-button').trigger('click');
+            });
         });
     };
 

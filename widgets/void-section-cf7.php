@@ -34,6 +34,10 @@ class void_cf7 extends Widget_Base {   //this name is added to plugin.php of the
 		return [ 'void-elements' ];    // category of the widget
 	}
 
+	public function is_reload_preview_required() {
+		return true;
+	}
+
 	/**
 	 * A list of scripts that the widgets is depended in
 	 * @since 1.3.0
