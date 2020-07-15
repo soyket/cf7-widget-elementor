@@ -40,7 +40,7 @@
             // modal close button click event
             close.on('click', function(){
                 // modal closed
-                modal.hide();
+                modal.fadeOut(500);
                 // reload frondend panel to show updated data
                 panel.$el.find('[data-setting="cf7"]').trigger('change');
                 elUpdateButtonPreview.find('.elementor-update-preview-button').trigger('click');
@@ -53,9 +53,37 @@
             iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7-new');
             modal.show();
             close.on('click', function(){
-                modal.hide();
-                $('[data-setting="cf7"]').trigger('change');
-                $('.elementor-update-preview-button').trigger('click');
+                //get current number of forms
+                var currentOption = panel.$el.find('[data-setting="cf7"] option').length;
+                var data = new FormData();
+                // append info
+                data.append('action', 'void_cf7_data');
+                // create http request
+                var xhr = new XMLHttpRequest();
+                // set the type , url, asynchronous
+                xhr.open('POST', voidCf7Admin.ajaxUrl, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        var count = 0;
+                        $.each(response, function(key, value) {
+                            if (count < currentOption) {
+                                count++;
+                                return true;
+                            }
+                            count++;
+                            panel.$el.find('[data-setting="cf7"]').append('<option selected value="' + key + '">' + value + '</option>');
+                            ElementorConfig['widgets']['void-section-cf7']['controls']['cf7'].options[key] = value;
+                        });
+                        modal.fadeOut(500);
+                        console.log(ElementorConfig['widgets']['void-section-cf7']['controls']['cf7'].options);
+                    }
+                };
+                // send data
+                xhr.send(data);
+
+                panel.$el.find('[data-setting="cf7"]').trigger('change');
+                elUpdateButtonPreview.find('.elementor-update-preview-button').trigger('click');
             });
         });
     };

@@ -1,8 +1,8 @@
 <?php
 
 function void_cf7_elementor_js_load(){
-    wp_enqueue_script( 'void-cf7-elementor-js', plugins_url('assets/js/void-cf7-elementor-editor.js', __FILE__ ), array(), null, true );
-    wp_localize_script('void-cf7-elementor-js', 'voidCf7Admin', array('url' => get_admin_url()));
+    wp_enqueue_script( 'void-cf7-elementor-js', plugins_url('assets/js/void-cf7-elementor-editor.js', __FILE__ ), array('jquery'), '1.0.0', true );
+    wp_localize_script('void-cf7-elementor-js', 'voidCf7Admin', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ), 'url' => get_admin_url()));
 }
 
 add_action( 'elementor/frontend/before_enqueue_scripts', 'void_cf7_elementor_js_load');

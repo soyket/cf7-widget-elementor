@@ -16,6 +16,11 @@ if ( ! function_exists( 'get_contact_form_7_posts' ) ) :
     else{
         (int)$catlist['0'] = esc_html__('No contect From 7 form found', 'void');
     }
+    //if AJAX action
+	  if( current_filter() == 'wp_ajax_void_cf7_data' ){
+		  echo json_encode( $catlist );
+		  wp_die();
+	  }
   return $catlist;
   }
 
@@ -42,3 +47,5 @@ if ( ! function_exists( 'void_get_all_pages' ) ) :
 
 endif;
 
+//ajax action
+add_action( 'wp_ajax_void_cf7_data', 'get_contact_form_7_posts' );

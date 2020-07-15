@@ -30,7 +30,9 @@ function void_cf7_widget() {
 	}
 
 	// Require the main plugin file
-	require( __DIR__ . '/plugin.php' );   //loading the main plugin
+    require( __DIR__ . '/plugin.php' );   //loading the main plugin
+    // helper file for this plugin. currently used for gettings all contact form of cf7. also used for ajax request handle
+    require __DIR__ . '/helper/helper.php';
 
 }
 add_action( 'plugins_loaded', 'void_cf7_widget' ); 
