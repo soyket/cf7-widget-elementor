@@ -61,6 +61,26 @@ function void_cf7_widget_notice() { ?>
 <?php }
 add_action('admin_notices', 'void_cf7_widget_notice');
 
+function void_cf7_widget_promotional_notice(){
+    if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : ?>
+        <div class="void-query-promotion-notice notice notice-success is-dismissible">
+            <div class="void-query-message-inner">
+				<div class="void-query-message-icon">
+					<img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
+				</div>
+				<div class="void-query-message-content">
+					<p>We noticed you have <strong>Elementor Pro</strong> on your site. Here is a great news for you.</p>
+					<p>Check out our another product <strong>Ele Query Builder !</strong></p>
+				</div>
+				<div class="void-query-message-action">
+					<a class="void-query-button" href="">Purchase Now</a>
+				</div>
+			</div>
+        </div>
+    <?php endif;
+}
+add_action('admin_notices', 'void_cf7_widget_promotional_notice');
+
 
 // add plugin activation time
 
@@ -118,9 +138,13 @@ add_action( 'admin_init', 'void_cf7_spare_me', 5 );
 
 //add admin css
 function void_cf7_admin_css(){
-     global $pagenow;
-    if( $pagenow == 'index.php' ){
+    //  global $pagenow;
+    // if( $pagenow == 'index.php' ){
+    //     wp_enqueue_style( 'void-cf7-admin', plugins_url( 'assets/css/void-cf7-admin.css', __FILE__ ) );
+    // }
+    if(true){
         wp_enqueue_style( 'void-cf7-admin', plugins_url( 'assets/css/void-cf7-admin.css', __FILE__ ) );
+        wp_enqueue_script('void-cf7-admin', plugins_url( 'assets/js/void-cf7-admin.js', __FILE__ ), ['jquery'], true);
     }
 }
 add_action( 'admin_enqueue_scripts', 'void_cf7_admin_css' );
