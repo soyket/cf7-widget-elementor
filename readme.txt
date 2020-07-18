@@ -2,8 +2,8 @@
 Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
 Requires at least: 4.4
-Tested up to: 5.2.2
-Stable tag: 1.0.9
+Tested up to: 5.4.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,7 @@ You must have [Contact form 7](https://wordpress.org/plugins/contact-form-7/) in
 
 This plugin adds new element / widget to Elementor Page Builder which helps you to easily drag and drop contact form 7 forms from a drop down list. No need of going in cf7 & copying the shortcode and addding to shortcode widget of elementor anymore !! 
 
+* Check out our new feature to edit and create contact form from elementor edit. You don't need to leave elementor editor to modify or create contact form 7! boom! 
 * Now only Drag and drop the widget inside elementor builder & choose your contact form ! Done ! 
 * Want to define style for input, lable, send button, success ? No problem ! This plugin let's you do those directly from elementor screen!
 * Want to add custom page to redirect to when the form is submitted ? That is also possible now !
@@ -36,10 +37,11 @@ Older Version Preview
 
 What Does This plugin give you?
 
-1. Easy use of contact forms created with Contact form 7 pluing inside elementor live editor
-2. Add Css directly from elementor live preview to your contact form 7 for different field type!! 
-3. Add any wordpress page as thank you page with this directly from elementor edit screen when you add the VOID Contact Fom 7 Widget!
-4. Use Single contact form 7 with different Style & redirect rule(Thank you page on success) on the same page with this.
+1. for editing or creating contact form 7, You don't have to leave elementor editor. 
+2. Easy use of contact forms created with Contact form 7 pluing inside elementor live editor
+3. Add Css directly from elementor live preview to your contact form 7 for different field type!! 
+4. Add any wordpress page as thank you page with this directly from elementor edit screen when you add the VOID Contact Fom 7 Widget!
+5. Use Single contact form 7 with different Style & redirect rule(Thank you page on success) on the same page with this.
 
 Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/plugins/elementor/) and will only work with Elementor Page Builder installed. And your elementor should be up to date to latest version
 
@@ -66,6 +68,9 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 
 
 == Changelog ==
+= 1.1.0 =
+* New: Edit contact form 7 on the elementor editor with out leaving it
+* New: Add new contact form 7 on the elementor editor with out leaving it
 = 1.0.9 =
 * Feature added - External thank you page 
 = 1.0.6 =
