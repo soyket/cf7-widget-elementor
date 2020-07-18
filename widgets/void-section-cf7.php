@@ -68,7 +68,7 @@ protected function _register_controls() {
 			'void_cf7_form_action_edit',
 			[
 				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => sprintf( '<a href="#" id="void-cf7-edit-form-btn">Edit form</a>', 'void' ),
+				'raw' => sprintf( '<a href="#" id="void-cf7-edit-form-btn" style="color:#d30c5c; float: right;">Edit form</a>', 'void' ),
 				'content_classes' => 'void-cf7-edit-form-btn',
 			]
 		);
@@ -77,7 +77,7 @@ protected function _register_controls() {
 			'void_cf7_form_action_add',
 			[
 				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => sprintf( '<a href="#" id="void-cf7-add-form-btn">Add new form</a>', 'void' ),
+				'raw' => sprintf( '<a href="#" id="void-cf7-add-form-btn" style="color:#d30c5c; float: right;">+ Add new form</a>', 'void' ),
 				'content_classes' => 'void-cf7-add-form-btn',
 			]
 		);
@@ -287,9 +287,10 @@ protected function _register_controls() {
 				'multiple' => false,
 				'label_block' => 1,
 				'options' => void_get_all_pages(),
-				'condition' => [
-									'cf7_redirect_external' => '',
-								],	
+				'condition' =>
+				[
+					'cf7_redirect_external' => '',
+				],	
 			]
 		);
 
@@ -302,7 +303,7 @@ protected function _register_controls() {
 		static $v_veriable=0;
 
 		$settings = $this->get_settings();
-		
+
         if(!empty($settings['cf7'])){
     	   echo'<div class="void-cf7-form-widget-wrapper elementor-shortcode void-cf7-'.$v_veriable.'" data-void-cf7-contact-form-id="'. $settings['cf7'] .'">';
                 echo do_shortcode('[contact-form-7 id="'.$settings['cf7'].'"]');    

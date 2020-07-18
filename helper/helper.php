@@ -1,30 +1,39 @@
-<?php 
+<?php
 
 if ( ! function_exists( 'get_contact_form_7_posts' ) ) :
-
   function get_contact_form_7_posts(){
 
-  $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+    $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+  
+      $cf7_form_list=[];
+      
+      if( $cf7_forms = get_posts($args)){
+        foreach ( $cf7_forms as $form ) {
+          (int)$cf7_form_list[$form->ID] = $form->post_title;
+        }
+      }
+      else{
+          (int)$cf7_form_list['0'] = esc_html__('No contect From 7 form found', 'void');
+      }
+    return $cf7_form_list;
+  }
+endif;
 
-    $catlist=[];
-    
-    if( $categories = get_posts($args)){
-    	foreach ( $categories as $category ) {
-    		(int)$catlist[$category->ID] = $category->post_title;
-    	}
-    }
-    else{
-        (int)$catlist['0'] = esc_html__('No contect From 7 form found', 'void');
-    }
-    //if AJAX action
-	  if( current_filter() == 'wp_ajax_void_cf7_data' ){
-		  echo json_encode( $catlist );
-		  wp_die();
-	  }
-  return $catlist;
+
+// ajax request handler
+if( !function_exists('get_contact_form_7_posts_by_ajax')) {
+
+  function get_contact_form_7_posts_by_ajax(){
+	$cf7_form_list = get_contact_form_7_posts();
+	echo json_encode($cf7_form_list);
+	wp_die();
   }
 
-endif;
+}
+
+//ajax action
+add_action( 'wp_ajax_void_cf7_data', 'get_contact_form_7_posts_by_ajax' );
+
 
 if ( ! function_exists( 'void_get_all_pages' ) ) :
 
@@ -46,6 +55,3 @@ if ( ! function_exists( 'void_get_all_pages' ) ) :
   }
 
 endif;
-
-//ajax action
-add_action( 'wp_ajax_void_cf7_data', 'get_contact_form_7_posts' );

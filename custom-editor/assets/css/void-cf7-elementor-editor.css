@@ -4,7 +4,7 @@
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 999; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 50px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -22,18 +22,28 @@
     border: 1px solid #888;
     width: 80%;
 }
+.cf7-widget-elementor-modal-iframe{
+    width: 100%;
+    min-height: 720px;
+}
   
 /* The Close Button */
 .cf7-widget-elementor-modal-close {
-    color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
+    background: #000;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 0 0 5px 6px;
+    color: #ffffff;
 }
 
 .cf7-widget-elementor-modal-close:hover,
 .cf7-widget-elementor-modal-close:focus {
-    color: #000;
+    color: rgb(248, 241, 241);
     text-decoration: none;
     cursor: pointer;
+    font-size: 26px;
 }
