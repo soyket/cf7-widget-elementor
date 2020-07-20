@@ -56,22 +56,26 @@ if ( ! function_exists( 'void_get_all_pages' ) ) :
 
 endif;
 
-function promotional_notice_dismiss_handler(){
-  // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
-  $type = $_POST['type'];
 
-  $status = $_POST['status'];
-
-  if($status == 'remind-me-later'){
-    // Store it in the options table
-    update_option( 'dismissed-' . $type . "-at", date('Y-m-d') );
-
-  }elseif( $status == 'never-show'){
-
-    update_option( 'dismissed-'. $type . '-never', TRUE );
-
-  }else{
-    update_option( 'dismissed-'. $type . '-never', TRUE );
+if( !function_exists('promotional_notice_dismiss_handler')){
+  
+  function promotional_notice_dismiss_handler(){
+    // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
+    $type = $_POST['type'];
+  
+    $status = $_POST['status'];
+  
+    if($status == 'remind-me-later'){
+      // Store it in the options table
+      update_option( 'dismissed-' . $type . "-at", date('Y-m-d') );
+  
+    }elseif( $status == 'never-show'){
+  
+      update_option( 'dismissed-'. $type . '-never', TRUE );
+  
+    }else{
+      update_option( 'dismissed-'. $type . '-never', TRUE );
+    }
   }
 }
 

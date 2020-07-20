@@ -16,7 +16,7 @@ You must have [Contact form 7](https://wordpress.org/plugins/contact-form-7/) in
 
 This plugin adds new element / widget to Elementor Page Builder which helps you to easily drag and drop contact form 7 forms from a drop down list. No need of going in cf7 & copying the shortcode and addding to shortcode widget of elementor anymore !! 
 
-* Check out our new feature to edit and create contact form from elementor edit. You don't need to leave elementor editor to modify or create contact form 7! boom! 
+* Check out our new feature to edit and create contact form from elementor editor. You don't need to leave elementor editor to modify or create contact form 7. boom! 
 * Now only Drag and drop the widget inside elementor builder & choose your contact form ! Done ! 
 * Want to define style for input, lable, send button, success ? No problem ! This plugin let's you do those directly from elementor screen!
 * Want to add custom page to redirect to when the form is submitted ? That is also possible now !
@@ -37,7 +37,7 @@ Older Version Preview
 
 What Does This plugin give you?
 
-1. for editing or creating contact form 7, You don't have to leave elementor editor. 
+1. for editing or creating contact form 7, You don't have to leave elementor editor. New popup modal will be open on elementor editor. editing and creating forms is too much easy now.
 2. Easy use of contact forms created with Contact form 7 pluing inside elementor live editor
 3. Add Css directly from elementor live preview to your contact form 7 for different field type!! 
 4. Add any wordpress page as thank you page with this directly from elementor edit screen when you add the VOID Contact Fom 7 Widget!
@@ -61,9 +61,11 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 
 == Screenshots ==
 
-1. /assets/screenshot-1.jpg
-2. /assets/screenshot-2.jpg
-3. /assets/screenshot-3.jpg
+1. /assets/screenshot_4.png
+2. /assets/screenshot_5.png
+3. /assets/screenshot-1.jpg
+4. /assets/screenshot-2.jpg
+5. /assets/screenshot-3.jpg
 
 
 

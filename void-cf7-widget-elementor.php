@@ -78,7 +78,7 @@ function void_cf7_widget_promotional_notice(){
     if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : 
         $url = 'https://elequerybuilder.com?click=cf7-promo';
             // different day condition. notice will again show if dismiss interval is more than equal 30 days
-            if(! get_option('dismissed-void-cf7-promotion-notice-ele-query-never', FALSE )):
+            if( !get_option('dismissed-void-cf7-promotion-notice-ele-query-never', FALSE )):
 
                 // different day condition. notice will again show if dismiss interval is more than equal 30 days
                 if($diff->days >= $conditional_days ):
@@ -170,7 +170,8 @@ add_action( 'admin_init', 'void_cf7_spare_me', 5 );
 //add admin css
 function void_cf7_admin_css(){
 
-    if(true){
+    global $pagenow;
+    if( $pagenow == 'index.php' || file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) || !get_option('dismissed-void-cf7-promotion-notice-ele-query-never', FALSE ) ){
         wp_enqueue_style( 'void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/css/void-cf7-admin.css', [], CF7_WIDGET_E_VERSION, 'all' );
         wp_enqueue_script('void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/js/void-cf7-admin.js', ['jquery'], CF7_WIDGET_E_VERSION, true);
     }
