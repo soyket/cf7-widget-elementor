@@ -22,7 +22,10 @@
 /* notice css start */
 .void-query-promotion-notice{
 	background: linear-gradient(to right, #4E40F1 0%, #ffccff 100%);
-	border-left-color: #4E40F1;
+	border-left-color: linear-gradient(to bottom, #3F2BE2 20%, #0066ff 45%);
+}
+.void-query-promotion-notice .notice-dismiss:before{
+	font-size: 22px;
 }
 .void-query-message-inner {
     display: flex;
@@ -39,7 +42,9 @@
 }
 .void-query-message-content p{
 	padding: 0;
-    margin: 0;
+	margin: 0;
+	font-size: 14px;
+	color: #000;
 }
 .void-query-message-action{
 	text-align: center;
@@ -55,12 +60,26 @@
     border-color: #7c1337;
     -webkit-box-shadow: 0 1px 0 #7c1337;
     box-shadow: 0 1px 0 #7c1337;
-    padding: 5px 30px;
+    padding: 10px 60px;
     height: auto;
     line-height: 20px;
 	text-transform: capitalize;
 	text-decoration: none;
-    border-radius: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-size: 16px;
+}
+.void-query-message-action .void-query-button:hover{
+	font-size: 18px;
+}
+
+.void-query-message-action .void-query-never-show{
+	color: #D0A7FB;
+	margin: 20px 20px 0 20px;
+}
+
+.void-query-message-action .void-query-never-show:hover{
+	color: #D0A7FB;
 }
 
 /* notice css end */

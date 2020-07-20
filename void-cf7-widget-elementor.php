@@ -11,6 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+define('CF7_WIDGET_E_VERSION', '1.1.0');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url( __FILE__ )));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path( __FILE__ )));
 
@@ -72,28 +73,41 @@ function void_cf7_widget_promotional_notice(){
     $diff = date_diff($dismiss_date, $current_date);
     // make conditional days. if date found in database, it will be 30.
     // otherwise it will be 0. Becase difference return 0 if there was no data on database
-    $conditional_days = ($db_dismiss_date) ? 30 : 0;
+    $conditional_days = ($db_dismiss_date) ? 15 : 0;
     // elementor pro install check
     if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : ?>
         <?php
             // different day condition. notice will again show if dismiss interval is more than equal 30 days
-            if($diff->days >= $conditional_days ):
+            if(! get_option('dismissed-void-cf7-promotion-notice-ele-query-never', FALSE )):
+
+                // different day condition. notice will again show if dismiss interval is more than equal 30 days
+                if($diff->days >= $conditional_days ):
+                    $url = (($conditional_days == 15) ? 'https://elequerybuilder.com/?discount=INSIDE10E' : 'https://elequerybuilder.com');
         ?>
-            <div class="void-query-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query">
-                <div class="void-query-message-inner">
-                    <div class="void-query-message-icon">
-                        <img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
-                    </div>
-                    <div class="void-query-message-content">
-                        <p>We noticed you have <strong>Elementor Pro</strong> on your site. Here is a great news for you.</p>
-                        <p>Check out our another product <strong>Ele Query Builder !</strong></p>
-                    </div>
-                    <div class="void-query-message-action">
-                        <a class="void-query-button" href="">Purchase Now</a>
+                <div class="void-query-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
+                    <div class="void-query-message-inner">
+                        <div class="void-query-message-icon">
+                            <img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
+                        </div>
+                        <div class="void-query-message-content">
+                            <?php if ($conditional_days == 15) :?>
+                                <p>Here is a Little gift for you!</p>
+                                <p>Get <strong>Ele Query Builder</strong> to build custom query without code with <strong>10% Discount</strong>. <strong>Use Coupon - INSIDE10E</strong></p>
+                            <?php else: ?>
+                                <p>We noticed you have <strong>Elementor Pro</strong> on your site.</p>
+                                <p>Get our <strong>Ele Query Builder</strong> to use custom query by using postmeta, ACF/PODS</p>
+                                <p>Woocommerce meta and events calendar with no CODE</p>
+                            <?php endif; ?>
+                        </div>
+                        <div class="void-query-message-action">
+                            <a class="void-query-button" target="__blank" href="<?php echo esc_url($url); ?>">Check Now</a>
+                            <!-- <a class="void-query-remind-later" href="#">Remind me later -> </a> -->
+                            <a class="void-query-never-show" href="#">Never show again -> </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endif;
+            <?php endif;    
+        endif;
     endif;
 }
 add_action('admin_notices', 'void_cf7_widget_promotional_notice');
@@ -160,8 +174,8 @@ function void_cf7_admin_css(){
     //     wp_enqueue_style( 'void-cf7-admin', plugins_url( 'assets/css/void-cf7-admin.css', __FILE__ ) );
     // }
     if(true){
-        wp_enqueue_style( 'void-cf7-admin', plugins_url( 'assets/css/void-cf7-admin.css', __FILE__ ) );
-        wp_enqueue_script('void-cf7-admin', plugins_url( 'assets/js/void-cf7-admin.js', __FILE__ ), ['jquery'], true);
+        wp_enqueue_style( 'void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/css/void-cf7-admin.css', [], CF7_WIDGET_E_VERSION, 'all' );
+        wp_enqueue_script('void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/js/void-cf7-admin.js', ['jquery'], CF7_WIDGET_E_VERSION, true);
     }
 }
 add_action( 'admin_enqueue_scripts', 'void_cf7_admin_css' );
