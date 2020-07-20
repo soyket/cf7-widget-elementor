@@ -47,3 +47,7 @@
     cursor: pointer;
     font-size: 26px;
 }
+
+.cf7-widget-elementor-modal-hide-adminmenu{
+    display: none;
+}
