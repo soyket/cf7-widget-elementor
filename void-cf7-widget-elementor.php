@@ -75,14 +75,14 @@ function void_cf7_widget_promotional_notice(){
     // otherwise it will be 0. Becase difference return 0 if there was no data on database
     $conditional_days = ($db_dismiss_date) ? 15 : 0;
     // elementor pro install check
-    if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : ?>
-        <?php
+    if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : 
+        $url = 'https://elequerybuilder.com?click=cf7-promo';
             // different day condition. notice will again show if dismiss interval is more than equal 30 days
             if(! get_option('dismissed-void-cf7-promotion-notice-ele-query-never', FALSE )):
 
                 // different day condition. notice will again show if dismiss interval is more than equal 30 days
                 if($diff->days >= $conditional_days ):
-                    $url = (($conditional_days == 15) ? 'https://elequerybuilder.com/?discount=INSIDE10E' : 'https://elequerybuilder.com');
+                    $url .= (($conditional_days == 15) ? '&discount=INSIDE10E' : '');
         ?>
                 <div class="void-query-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
                     <div class="void-query-message-inner">
@@ -169,10 +169,7 @@ add_action( 'admin_init', 'void_cf7_spare_me', 5 );
 
 //add admin css
 function void_cf7_admin_css(){
-    //  global $pagenow;
-    // if( $pagenow == 'index.php' ){
-    //     wp_enqueue_style( 'void-cf7-admin', plugins_url( 'assets/css/void-cf7-admin.css', __FILE__ ) );
-    // }
+
     if(true){
         wp_enqueue_style( 'void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/css/void-cf7-admin.css', [], CF7_WIDGET_E_VERSION, 'all' );
         wp_enqueue_script('void-cf7-admin', CF7_WIDGET_E_PLUGIN_URL . 'assets/js/void-cf7-admin.js', ['jquery'], CF7_WIDGET_E_VERSION, true);
