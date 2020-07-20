@@ -55,3 +55,12 @@ if ( ! function_exists( 'void_get_all_pages' ) ) :
   }
 
 endif;
+
+function promotional_notice_dismiss_handler(){
+  // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
+  $type = $_POST['type'];
+  // Store it in the options table
+  update_option( 'dismissed-' . $type . "-at", date('Y-m-d') );
+}
+
+add_action('wp_ajax_dismissed_promotional_notice_handler', 'promotional_notice_dismiss_handler');

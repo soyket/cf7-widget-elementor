@@ -21,7 +21,8 @@
 
 /* notice css start */
 .void-query-promotion-notice{
-	background: linear-gradient(to right, #0000ff 0%, #ffccff 100%);
+	background: linear-gradient(to right, #4E40F1 0%, #ffccff 100%);
+	border-left-color: #4E40F1;
 }
 .void-query-message-inner {
     display: flex;

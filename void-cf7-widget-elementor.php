@@ -62,22 +62,39 @@ function void_cf7_widget_notice() { ?>
 add_action('admin_notices', 'void_cf7_widget_notice');
 
 function void_cf7_widget_promotional_notice(){
+    // notice dismiss date form database
+    $db_dismiss_date = get_option('dismissed-void-cf7-promotion-notice-ele-query-at');
+    // create a date object from database date
+    $dismiss_date = date_create($db_dismiss_date);
+    // create a current date object
+    $current_date = date_create(date('Y-m-d'));
+    // get difference of both date
+    $diff = date_diff($dismiss_date, $current_date);
+    // make conditional days. if date found in database, it will be 30.
+    // otherwise it will be 0. Becase difference return 0 if there was no data on database
+    $conditional_days = ($db_dismiss_date) ? 30 : 0;
+    // elementor pro install check
     if ( file_exists( WP_PLUGIN_DIR . '/elementor-pro/elementor-pro.php' ) || did_action( 'elementor_pro/init' ) ) : ?>
-        <div class="void-query-promotion-notice notice notice-success is-dismissible">
-            <div class="void-query-message-inner">
-				<div class="void-query-message-icon">
-					<img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
-				</div>
-				<div class="void-query-message-content">
-					<p>We noticed you have <strong>Elementor Pro</strong> on your site. Here is a great news for you.</p>
-					<p>Check out our another product <strong>Ele Query Builder !</strong></p>
-				</div>
-				<div class="void-query-message-action">
-					<a class="void-query-button" href="">Purchase Now</a>
-				</div>
-			</div>
-        </div>
-    <?php endif;
+        <?php
+            // different day condition. notice will again show if dismiss interval is more than equal 30 days
+            if($diff->days >= $conditional_days ):
+        ?>
+            <div class="void-query-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query">
+                <div class="void-query-message-inner">
+                    <div class="void-query-message-icon">
+                        <img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
+                    </div>
+                    <div class="void-query-message-content">
+                        <p>We noticed you have <strong>Elementor Pro</strong> on your site. Here is a great news for you.</p>
+                        <p>Check out our another product <strong>Ele Query Builder !</strong></p>
+                    </div>
+                    <div class="void-query-message-action">
+                        <a class="void-query-button" href="">Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+        <?php endif;
+    endif;
 }
 add_action('admin_notices', 'void_cf7_widget_promotional_notice');
 
