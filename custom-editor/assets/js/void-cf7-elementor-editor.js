@@ -12,6 +12,7 @@
         // modal elementor selector
         modal = windowParent.jQuery('#cf7_widget_elementor_contact_form_control_modal');
         modalContainer = modal.find('.cf7-widget-elementor-modal-content');
+        modalLoading = modal.find('.cf7-widget-elementor-modal-content-loader');
         close = modal.find('.cf7-widget-elementor-modal-close');
         iframe = modal.find('.cf7-widget-elementor-modal-iframe');
     };
@@ -27,6 +28,8 @@
         // form edit button click event function
         $elementEdit.on('click', function(e){
             e.preventDefault();
+            // loader add on modal
+            modalLoading.addClass('loading');
             // insert src in iframe with edit link of selected form
             iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7&post='+formId+'&action=edit');
             // set opacity 0 to hide iframe untill it's load contents, opacity will be 1 after it's load content from modal-editor.php scripts
@@ -47,8 +50,12 @@
         // form add new button click event function
         $elementAdd.on('click', function(e){
             e.preventDefault();
+            // loader add on modal
+            modalLoading.addClass('loading');
             // insert src in iframe with edit link of selected form
             iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7-new');
+            // set opacity 0 to hide iframe untill it's load contents, opacity will be 1 after it's load content from modal-editor.php scripts
+            iframe.css('opacity', 0);
             // open modal with contact form add new url
             modal.show();
             // modal close button click event
