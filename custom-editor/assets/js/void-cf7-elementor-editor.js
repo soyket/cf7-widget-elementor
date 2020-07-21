@@ -21,21 +21,22 @@
         // form edit button element selector
         let $elementEdit = panel.$el.find( '.void-cf7-edit-form-btn' ).find( '#void-cf7-edit-form-btn' );
         // elementor update preview button selector
-        var elUpdateButtonPreview = panel.$el.find('.elementor-update-preview');
+        var elUpdatePreviewButton = panel.$el.find('.elementor-update-preview');
         // hide button from edit panel
-        elUpdateButtonPreview.hide();
+        elUpdatePreviewButton.hide();
         // form edit button click event function
         $elementEdit.on('click', function(e){
             e.preventDefault();
             // insert src in iframe with edit link of selected form
             iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7&post='+formId+'&action=edit');
+            // set opacity 0 to hide iframe untill it's load contents, opacity will be 1 after it's load content from modal-editor.php scripts
+            iframe.css('opacity', 0);
             // open modal with contact form edit url
             modal.show();
             // modal close button click event
             close.on('click', function(){
                 // reload frondend panel to show updated data
-                panel.$el.find('[data-setting="cf7"]').trigger('change');
-                elUpdateButtonPreview.find('.elementor-update-preview-button').trigger('click');
+                elUpdatePreviewButton.find('.elementor-update-preview-button').trigger('click');
                 // modal modal after completed all the tasks
                 modal.fadeOut(500);
             });

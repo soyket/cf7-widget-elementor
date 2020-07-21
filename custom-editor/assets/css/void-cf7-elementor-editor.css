@@ -12,21 +12,25 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    right: 0;
+    bottom: 0;
 }
   
 /* Modal Content */
 .cf7-widget-elementor-modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 0px;
     border: 1px solid #888;
     width: 90%;
     height: 90%;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
 }
 .cf7-widget-elementor-modal-iframe{
     width: 100%;
-    /* min-height: 720px; */
-    height: 95%;
+    height: 100%;
 }
   
 /* The Close Button */
@@ -40,6 +44,9 @@
     width: 25px;
     padding: 0 0 5px 6px;
     color: #ffffff;
+    position: absolute;
+    z-index: 1;
+    right: 0px;
 }
 
 .cf7-widget-elementor-modal-close:hover,

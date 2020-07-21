@@ -61,8 +61,8 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 
 == Screenshots ==
 
-1. /assets/screenshot_4.png
-2. /assets/screenshot_5.png
+1. /assets/screenshot-4.png
+2. /assets/screenshot-5.png
 3. /assets/screenshot-1.jpg
 4. /assets/screenshot-2.jpg
 5. /assets/screenshot-3.jpg
