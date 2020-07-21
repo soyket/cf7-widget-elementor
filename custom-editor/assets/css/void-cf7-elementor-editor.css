@@ -20,11 +20,13 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
+    height: 90%;
 }
 .cf7-widget-elementor-modal-iframe{
     width: 100%;
-    min-height: 720px;
+    /* min-height: 720px; */
+    height: 95%;
 }
   
 /* The Close Button */
