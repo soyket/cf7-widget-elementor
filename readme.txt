@@ -58,7 +58,6 @@ Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/p
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Go to elementor page builder mode and then select our post grid widget and you will see many options when you drag and drop the widget to the live page. To see the real preview in live mode you must click apply button on top to update the layout and finally hit save in elementor and visit your page to see the changes. 
 
-
 == Frequently Asked Questions ==
 
 = Where can to find the new element added =
@@ -74,7 +73,8 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 4. /assets/screenshot-2.jpg
 5. /assets/screenshot-3.jpg
 
-
+== Update Instructions ==
+Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
 = 1.1.0 =
