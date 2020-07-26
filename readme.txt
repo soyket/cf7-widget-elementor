@@ -1,4 +1,4 @@
-=== Void Contact Form7 Widget For Elementor Page Builder ===
+=== Void Contact Form 7 Widget For Elementor Page Builder ===
 Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
 Requires at least: 4.4
