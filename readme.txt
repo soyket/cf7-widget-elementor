@@ -7,7 +7,7 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This WordPress Plugin Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with CF7 (contact form 7). It also lets you define any page as a thank you / success page after the form has been submitted! You also can add basic custom CSS directly from elementor edit screen now !! If you are a developer who designs sites for clients you will love this because the css panel is developer fridnly as well as noob friendly.
+This WordPress Plugin Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with CF7 (contact form 7). It also lets you define any page as a thank you / success page / Redirect after the form has been submitted! You also can add basic custom CSS directly from elementor edit screen now !! If you are a developer who designs sites for clients you will love this because the css panel is developer fridnly as well as noob friendly.
 
 You must have [Elementor Page Builder](https://wordpress.org/plugins/elementor/) installed.
 You must have [Contact form 7](https://wordpress.org/plugins/contact-form-7/) installed and forms created.
@@ -24,12 +24,19 @@ Yet this is just a simple plugin for simple users :)
 * What's more interesting is that you can have multiple form of the same single contact form 7 form with different rules and design with this on same page ! 
 
 For more details :[VOID CF7 Elementor Widget](https://voidcoders.com/product/contact-form7-widget-for-elementor-free/).
+
 For our other elementor & WP works visit : [VOID CODERS](https://voidcoders.com).
+
 For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
 
+Follow us on: [Github](https://github.com/soyket/cf7-widget-elementor/).
+
+Version 1.1 ( Edit/Add contact from inside Elementor )
+[youtube https://youtu.be/ZI0GMJoESaw]
 
 Latest Version Preview
 [youtube https://youtu.be/MlzrZ0zXM24]
+
 Older Version Preview
 [youtube https://youtu.be/sAHspWvhjNg]
 
@@ -37,13 +44,13 @@ Older Version Preview
 
 What Does This plugin give you?
 
-1. for editing or creating contact form 7, You don't have to leave elementor editor. New popup modal will be open on elementor editor. editing and creating forms is too much easy now.
+1. For editing or creating contact form 7, You don't have to leave elementor editor. New popup modal will be open on elementor editor. Edit or create forms on the fly!
 2. Easy use of contact forms created with Contact form 7 pluing inside elementor live editor
-3. Add Css directly from elementor live preview to your contact form 7 for different field type!! 
-4. Add any wordpress page as thank you page with this directly from elementor edit screen when you add the VOID Contact Fom 7 Widget!
+3. Add CSS directly from elementor live preview to your contact form 7 for different field type!! 
+4. Add any WordPress page as thank you page with this directly from elementor edit screen when you add the VOID Contact Fom 7 Widget!
 5. Use Single contact form 7 with different Style & redirect rule(Thank you page on success) on the same page with this.
 
-Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/plugins/elementor/) and will only work with Elementor Page Builder installed. And your elementor should be up to date to latest version
+Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/plugins/elementor/) and will only work with Elementor Page Builder installed along with Contact form 7 plugin.
 
 == Installation ==
 
@@ -56,7 +63,7 @@ Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/p
 
 = Where can to find the new element added =
 
-Our Contact Form7 Widget For Elementor Page Builder adds a new section in the elementor live page builder named : VOID ELEMENTS. There you will see the widget which you can drag and drop and config settings
+Our Contact Form7 Widget For Elementor Page Builder adds a new section in the elementor live page builder named : VOID ELEMENTS. There you will see the widget called -Void Contact form 7- which you can drag and drop and config settings
 
 
 == Screenshots ==
@@ -71,8 +78,7 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 
 == Changelog ==
 = 1.1.0 =
-* New: Edit contact form 7 on the elementor editor with out leaving it
-* New: Add new contact form 7 on the elementor editor with out leaving it
+* New: Add and Edit contact form without leaving elementor dashboard. 
 = 1.0.9 =
 * Feature added - External thank you page 
 = 1.0.6 =
