@@ -45,15 +45,15 @@ function void_cf7_widget_notice() { ?>
         <div class="notice notice-warning is-dismissible">
 
             <?php if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) && ! did_action( 'elementor/loaded' ) ) : ?>
-                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Active Now</a> <b>Elementor Page Builder</b> must be activated for <b>"Void Contact Form 7 Widget For Elementor Page Builder"</b> to work' ),  wp_nonce_url( 'plugins.php?action=activate&plugin=elementor/elementor.php&plugin_status=all&paged=1', 'activate-plugin_elementor/elementor.php') ); ?></p>
+                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Active</a> <b>Elementor Page Builder</b> now for working with <b>"Void Contact Form 7 Widget"</b>' ),  wp_nonce_url( 'plugins.php?action=activate&plugin=elementor/elementor.php&plugin_status=all&paged=1', 'activate-plugin_elementor/elementor.php') ); ?></p>
             <?php elseif ( !file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) : ?>
-                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Install Now</a> <b>Elementor Page Builder</b> must be installed for <b>"Void Contact Form 7 Widget For Elementor Page Builder"</b> to work' ),  wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' )); ?></p>
+                    <p><?php echo sprintf( __( '<b>Elementor Page Builder</b> must be installed for <b>"Void Contact Form 7 Widget"</b> to work. <a href="%s" class="button button-primary">Install Now</a>' ),  wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' )); ?></p>
             <?php endif; ?>
 
             <?php if ( file_exists( WP_PLUGIN_DIR . '/contact-form-7/wp-contact-form-7.php' ) && !is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) : ?>
-                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Active Now</a> <b>Contact Form 7</b> must be activated for <b>"Void Contact Form 7 Widget For Elementor Page Builder"</b> to work' ), wp_nonce_url( 'plugins.php?action=activate&plugin=contact-form-7/wp-contact-form-7.php&plugin_status=all&paged=1', 'activate-plugin_contact-form-7/wp-contact-form-7.php' )); ?></p>
+                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Active</a> <b>Contact Form 7</b> now to start working with <b>"Void Contact Form 7 Widget"</b>' ), wp_nonce_url( 'plugins.php?action=activate&plugin=contact-form-7/wp-contact-form-7.php&plugin_status=all&paged=1', 'activate-plugin_contact-form-7/wp-contact-form-7.php' )); ?></p>
             <?php elseif ( !file_exists( WP_PLUGIN_DIR . '/contact-form-7/wp-contact-form-7.php' ) ) : ?>
-                    <p><?php echo sprintf( __( '<a href="%s" class="button button-primary">Install Now</a> <b>Contact Form 7</b>  must be installed for <b>"Void Contact Form 7 Widget For Elementor Page Builder"</b> to work' ), wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=contact-form-7' ), 'install-plugin_contact-form-7' )); ?></p>
+                    <p><?php echo sprintf( __( '<b>Contact Form 7</b>  must be installed and activated for <b>"Void Contact Form 7 Widget"</b> to work. <a href="%s" class="button button-primary">Install Now</a>' ), wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=contact-form-7' ), 'install-plugin_contact-form-7' )); ?></p>
             <?php endif; ?>
 
         </div>
