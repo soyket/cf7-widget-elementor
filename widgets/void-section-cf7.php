@@ -16,7 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 1.0.0
  */
 
-class void_cf7 extends Widget_Base {   //this name is added to plugin.php of the root folder
+class void_cf7 extends Widget_Base {
+
+	// public function __construct( $data = [], $args = null ) {
+	// 	parent::__construct( $data, $args );
+	// 	$this->add_style_depends('void-cf7-elementor-js');
+	// 	$this->add_script_depends('void-cf7-elementor-css');
+	// }
+
+	//this name is added to plugin.php of the root folder
 
 	public function get_name() {
 		return 'void-section-cf7';

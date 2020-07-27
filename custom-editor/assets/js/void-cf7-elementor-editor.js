@@ -1,67 +1,73 @@
 (function($) {
-    // declare some global variable to avaoid multiple searching on DOM
-    var formId;
-    var windowParent = window.parent;
-    var modal, modalContainer, close, iframe;
-    // initialization function, some selector and variable initialize on first load
-    var initializeFormInfo = function( $scope, $ ) {
-        // form wrapper element
-        let elForm = $scope.find( '.void-cf7-form-widget-wrapper' );
-        // current selected form by attr of form mark up 
-        formId = elForm.data('void-cf7-contact-form-id');
-        // modal elementor selector
-        modal = windowParent.jQuery('#cf7_widget_elementor_contact_form_control_modal');
-        modalContainer = modal.find('.cf7-widget-elementor-modal-content');
-        modalLoading = modal.find('.cf7-widget-elementor-modal-content-loader');
-        close = modal.find('.cf7-widget-elementor-modal-close');
-        iframe = modal.find('.cf7-widget-elementor-modal-iframe');
-    };
 
-    // elementor edit panel call back function from hook
-    var addEditActionFunction = function (panel, model, view) {
-        // elementor update preview button selector
-        var elUpdatePreviewButton = panel.$el.find('.elementor-update-preview');
-        // hide button from edit panel
-        elUpdatePreviewButton.hide();
+    // call the the functionality of add, edit form when elementor editor panel is open for edit
+    elementor.hooks.addAction('panel/open_editor/widget/void-section-cf7', function (panel, model, view) {
+        
+        // declare some global variable to avaoid multiple searching on DOM
+        var formId;
+        var windowParent = window.parent;
+        var modal, modalContainer, close, iframe, elUpdatePreviewButton;
 
-        // call initial form assign function for preventing data loose after switching widget
-        addButtonFunction();
+        addEditHandler();
+
+        function addEditHandler(){
+            // current selected form by attr of form mark up 
+            formId = model.attributes.settings.attributes.cf7;
+            // modal elementor selector
+            modal = windowParent.jQuery('#cf7_widget_elementor_contact_form_control_modal');
+            modalContainer = modal.find('.cf7-widget-elementor-modal-content');
+            modalLoading = modal.find('.cf7-widget-elementor-modal-content-loader');
+            close = modal.find('.cf7-widget-elementor-modal-close');
+            iframe = modal.find('.cf7-widget-elementor-modal-iframe');
+
+            // elementor update preview button selector
+            elUpdatePreviewButton = $('.elementor-update-preview');
+            // hide button from edit panel
+            elUpdatePreviewButton.hide();
+
+            // call initial form assign function for preventing data loose after switching widget
+            addButtonFunction();
+
+            // form edit button element selector
+            var $elementEdit = $( '.void-cf7-edit-form-btn' ).find( '#void-cf7-edit-form-btn' );
+            
+            // form edit button click event function
+            $elementEdit.on('click', function(e){
+                e.preventDefault();
+                editButtonFunction();
+            });
+            
+            // form add new button element selector
+            var $elementAdd = $( '.void-cf7-add-form-btn' ).find( '#void-cf7-add-form-btn' );
+            // form add new button click event function
+            $elementAdd.on('click', function(e){
+                e.preventDefault();
+                // loader add on modal
+                modalLoading.addClass('loading');
+                // insert src in iframe with edit link of selected form
+                iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7-new');
+                // set opacity 0 to hide iframe untill it's load contents, opacity will be 1 after it's load content from modal-editor.php scripts
+                iframe.css('opacity', 0);
+                // open modal with contact form add new url
+                modal.show();
+                // modal close button click event
+                close.on('click', function(){
+                    addButtonFunction();
+                    // hide after completed all the actions        
+                    modal.fadeOut(500);
+                });
+            });
+        }
 
         //when moving from Advanced tab to content model variable is null so to pass it's data
         function pass_around_model(panel,model,view){
-            addButtonFunction();
+            setTimeout(function(){ addEditHandler(); }, 100);
+            //addEditHandler();
         }
 
-        // form edit button element selector
-        var $elementEdit = panel.$el.find( '.void-cf7-edit-form-btn' ).find( '#void-cf7-edit-form-btn' );
-        
-        // form edit button click event function
-        $elementEdit.on('click', function(e){
-            editButtonFunction();
-        });
-
-        // form add new button element selector
-        var $elementAdd = panel.$el.find( '.void-cf7-add-form-btn' ).find( '#void-cf7-add-form-btn' );
-        // form add new button click event function
-        $elementAdd.on('click', function(e){
-            e.preventDefault();
-            // loader add on modal
-            modalLoading.addClass('loading');
-            // insert src in iframe with edit link of selected form
-            iframe.attr('src', voidCf7Admin.url+'admin.php?page=wpcf7-new');
-            // set opacity 0 to hide iframe untill it's load contents, opacity will be 1 after it's load content from modal-editor.php scripts
-            iframe.css('opacity', 0);
-            // open modal with contact form add new url
-            modal.show();
-            // modal close button click event
-            close.on('click', function(){
-                addButtonFunction();
-            });
-        });
-
         //this ensures the data remains the same even after switching back from advanced tab to content tab
-        panel.$el.find( '.elementor-tab-control-content a' ).on( 'click',function(event){
-            pass_around_model( panel,model,view );
+        $( '.elementor-tab-control-content a' ).on( 'click',function(event){
+            pass_around_model(panel,model,view);
         });
 
         function editButtonFunction(){
@@ -122,20 +128,8 @@
                     console.log(e);
                 },
             });
-            // hide after completed all the actions        
-            modal.fadeOut(500);
+            
         }
-    };
-
-    // inilialization of js hook on elementor frondend and editor panel
-    $(window).on('elementor/frontend/init', function () {
-
-        // call the initialization function after loading elementor editor
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/void-section-cf7.default', initializeFormInfo);
-        
-        // call the the functionality of add, edit form when elementor editor panel is open for edit
-        elementor.hooks.addAction('panel/open_editor/widget/void-section-cf7', addEditActionFunction);
-
     });
 
 })(jQuery);
