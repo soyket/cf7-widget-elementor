@@ -61,7 +61,10 @@
 
         //when moving from Advanced tab to content model variable is null so to pass it's data
         function pass_around_model(panel,model,view){
-            setTimeout(function(){ addEditHandler(); }, 100);
+            // set timeout to load content tab's content
+            setTimeout(function(){
+                addEditHandler();
+            }, 100);
             //addEditHandler();
         }
 
