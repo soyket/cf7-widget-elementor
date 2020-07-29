@@ -75,7 +75,6 @@
 
         $('.elementor-controls-stack').on('mouseenter', function() {
             $(".elementor-control-section_content").on("click", function (event) {
-                console.log('event click');
                 setTimeout(function(){
                     addButtonFunction();
                 }, 100);
