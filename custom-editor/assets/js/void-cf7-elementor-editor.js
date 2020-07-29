@@ -73,6 +73,15 @@
             pass_around_model(panel,model,view);
         });
 
+        $('.elementor-controls-stack').on('mouseenter', function() {
+            $(".elementor-control-section_content").on("click", function (event) {
+                console.log('event click');
+                setTimeout(function(){
+                    addButtonFunction();
+                }, 100);
+            });
+        });
+
         function editButtonFunction(){
             // loader add on modal
             modalLoading.addClass('loading');
