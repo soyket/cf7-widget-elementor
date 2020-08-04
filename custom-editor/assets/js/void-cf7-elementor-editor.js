@@ -76,7 +76,7 @@
         $('.elementor-controls-stack').on('mouseenter', function() {
             $(".elementor-control-section_content").on("click", function (event) {
                 setTimeout(function(){
-                    addButtonFunction();
+                    addEditHandler();
                 }, 100);
             });
         });
