@@ -60,7 +60,7 @@
         }
 
         //when moving from Advanced tab to content model variable is null so to pass it's data
-        function pass_around_model(panel,model,view){
+        function cf7_data_pass_around_model(panel,model,view){
             // set timeout to load content tab's content
             setTimeout(function(){
                 addEditHandler();
@@ -70,7 +70,7 @@
 
         //this ensures the data remains the same even after switching back from advanced tab to content tab
         $( '.elementor-tab-control-content a' ).on( 'click',function(event){
-            pass_around_model(panel,model,view);
+            cf7_data_pass_around_model(panel,model,view);
         });
 
         $('.elementor-controls-stack').on('mouseenter', function() {
