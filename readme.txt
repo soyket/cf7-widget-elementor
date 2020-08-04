@@ -77,6 +77,8 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
+= 1.1.2 =
+* Fix: Editor panel data loose issue solved after comeback another control sections/ widgets.
 = 1.1.1 =
 * Fix: Js erros on frontend
 = 1.1.0 =
