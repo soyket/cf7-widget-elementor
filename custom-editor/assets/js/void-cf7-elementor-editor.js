@@ -65,7 +65,6 @@
             setTimeout(function(){
                 addEditHandler();
             }, 100);
-            //addEditHandler();
         }
 
         //this ensures the data remains the same even after switching back from advanced tab to content tab
