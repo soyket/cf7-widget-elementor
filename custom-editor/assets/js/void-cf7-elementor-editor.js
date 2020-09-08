@@ -1,8 +1,14 @@
+// elementor.hooks.addAction('panel/open_editor/widget/void-section-cf7', function (panel, model, view) {
+//     var elParent = document.getElementById('elementor-panel-page-editor');
+//     var elContent = elParent.querySelector('.elementor-tab-control-content a');
+//     elContent.addEventListener('click', function(){
+//         console.log('click occured from raw js');
+//     });
+// });
 (function($) {
 
     // call the the functionality of add, edit form when elementor editor panel is open for edit
     elementor.hooks.addAction('panel/open_editor/widget/void-section-cf7', function (panel, model, view) {
-        
         // declare some global variable to avaoid multiple searching on DOM
         var formId;
         var windowParent = window.parent;
@@ -11,6 +17,7 @@
         addEditHandler();
 
         function addEditHandler(){
+            console.log('add edit handler call');
             // current selected form by attr of form mark up 
             formId = model.attributes.settings.attributes.cf7;
             // modal elementor selector
@@ -66,14 +73,22 @@
                 addEditHandler();
             }, 100);
         }
-
+                     
         //this ensures the data remains the same even after switching back from advanced tab to content tab
-        $( '.elementor-tab-control-content a' ).on( 'click',function(event){
+        var elContent = $( '.elementor-tab-control-content a' );
+        console.log(elContent);
+        if(elContent.length > 0){
+            console.log('selector found!');
+        }
+        elContent.on( 'click',function(event){
+            console.log('click event');
             cf7_data_pass_around_model(panel,model,view);
         });
 
         $('.elementor-controls-stack').on('mouseenter', function() {
+            //console.log('mouse enter content section');
             $(".elementor-control-section_content").on("click", function (event) {
+                console.log('section change handler');
                 setTimeout(function(){
                     addEditHandler();
                 }, 100);

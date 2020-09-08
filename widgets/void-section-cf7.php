@@ -57,6 +57,7 @@ protected function _register_controls() {
 			'section_content',
 			[
 				'label' => esc_html__( 'Contact Form 7', 'void' ),   //section name for controler view
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
@@ -96,6 +97,7 @@ protected function _register_controls() {
 			'section_stype',
 			[
 				'label' => esc_html__( 'Style Contact Form', 'void' ),   //section name for controler view
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -272,6 +274,7 @@ protected function _register_controls() {
 			'section_redirect',
 			[
 				'label' => esc_html__( 'After Submit Redirect Setting', 'void' ),   //section name for controler view
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 	
@@ -334,6 +337,5 @@ protected function _register_controls() {
 
 		<?php  $v_veriable++;
  		}
-
     }
 }
