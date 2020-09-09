@@ -1,10 +1,3 @@
-// elementor.hooks.addAction('panel/open_editor/widget/void-section-cf7', function (panel, model, view) {
-//     var elParent = document.getElementById('elementor-panel-page-editor');
-//     var elContent = elParent.querySelector('.elementor-tab-control-content a');
-//     elContent.addEventListener('click', function(){
-//         console.log('click occured from raw js');
-//     });
-// });
 (function($) {
 
     // call the the functionality of add, edit form when elementor editor panel is open for edit
@@ -17,7 +10,7 @@
         addEditHandler();
 
         function addEditHandler(){
-            console.log('add edit handler call');
+            //console.log('add edit handler call');
             // current selected form by attr of form mark up 
             formId = model.attributes.settings.attributes.cf7;
             // modal elementor selector
@@ -30,7 +23,7 @@
             // elementor update preview button selector
             elUpdatePreviewButton = $('.elementor-update-preview');
             // hide button from edit panel
-            elUpdatePreviewButton.hide();
+            //elUpdatePreviewButton.hide();
 
             // call initial form assign function for preventing data loose after switching widget
             addButtonFunction();
@@ -64,6 +57,28 @@
                     modal.fadeOut(500);
                 });
             });
+
+            // this ensures the data remains the same even after switching back from advanced tab to content tab
+            $( '.elementor-tab-control-content a' ).on( 'click', function(event){
+                //console.log('content tab clicked');
+                cf7_data_pass_around_model(panel,model,view);
+            });
+
+            // to keep js working
+            $( '.elementor-tab-control-advanced a' ).on( 'click', function(event){
+                //console.log('advanced tab clicked');
+                cf7_data_pass_around_model(panel,model,view);
+            });
+
+            // this ensures the data remains the same even after switching back from another section to cf7 form section
+            $('.elementor-controls-stack').on('mouseenter', function() {
+                //console.log('mouse enter content section');
+                $(".elementor-control-section_content").on("click", function (event) {
+                    //console.log('section change handler');
+                    cf7_data_pass_around_model(panel,model,view);
+                });
+            });
+
         }
 
         //when moving from Advanced tab to content model variable is null so to pass it's data
@@ -75,25 +90,25 @@
         }
                      
         //this ensures the data remains the same even after switching back from advanced tab to content tab
-        var elContent = $( '.elementor-tab-control-content a' );
-        console.log(elContent);
-        if(elContent.length > 0){
-            console.log('selector found!');
-        }
-        elContent.on( 'click',function(event){
-            console.log('click event');
-            cf7_data_pass_around_model(panel,model,view);
-        });
+        // $( '.elementor-tab-control-content a' ).click( function(event){
+        //     console.log('content tab clicked');
+        //     cf7_data_pass_around_model(panel,model,view);
+        // });
 
-        $('.elementor-controls-stack').on('mouseenter', function() {
-            //console.log('mouse enter content section');
-            $(".elementor-control-section_content").on("click", function (event) {
-                console.log('section change handler');
-                setTimeout(function(){
-                    addEditHandler();
-                }, 100);
-            });
-        });
+        // $( '.elementor-tab-control-advanced a' ).on( 'click',function(event){
+        //     console.log('advanced tab clicked');
+        //     cf7_data_pass_around_model(panel,model,view);
+        // });
+
+        // $('.elementor-controls-stack').on('mouseenter', function() {
+        //     //console.log('mouse enter content section');
+        //     $(".elementor-control-section_content").on("click", function (event) {
+        //         console.log('section change handler');
+        //         setTimeout(function(){
+        //             addEditHandler();
+        //         }, 100);
+        //     });
+        // });
 
         function editButtonFunction(){
             // loader add on modal

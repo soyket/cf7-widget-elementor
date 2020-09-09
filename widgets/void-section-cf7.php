@@ -97,7 +97,7 @@ protected function _register_controls() {
 			'section_stype',
 			[
 				'label' => esc_html__( 'Style Contact Form', 'void' ),   //section name for controler view
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
