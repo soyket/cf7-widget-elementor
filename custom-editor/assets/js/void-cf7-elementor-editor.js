@@ -58,27 +58,6 @@
                 });
             });
 
-            // this ensures the data remains the same even after switching back from advanced tab to content tab
-            $( '.elementor-tab-control-content a' ).on( 'click', function(event){
-                //console.log('content tab clicked');
-                cf7_data_pass_around_model(panel,model,view);
-            });
-
-            // to keep js working
-            $( '.elementor-tab-control-advanced a' ).on( 'click', function(event){
-                //console.log('advanced tab clicked');
-                cf7_data_pass_around_model(panel,model,view);
-            });
-
-            // this ensures the data remains the same even after switching back from another section to cf7 form section
-            $('.elementor-controls-stack').on('mouseenter', function() {
-                //console.log('mouse enter content section');
-                $(".elementor-control-section_content").on("click", function (event) {
-                    //console.log('section change handler');
-                    cf7_data_pass_around_model(panel,model,view);
-                });
-            });
-
         }
 
         //when moving from Advanced tab to content model variable is null so to pass it's data
@@ -88,27 +67,24 @@
                 addEditHandler();
             }, 100);
         }
-                     
-        //this ensures the data remains the same even after switching back from advanced tab to content tab
-        // $( '.elementor-tab-control-content a' ).click( function(event){
-        //     console.log('content tab clicked');
-        //     cf7_data_pass_around_model(panel,model,view);
-        // });
 
-        // $( '.elementor-tab-control-advanced a' ).on( 'click',function(event){
-        //     console.log('advanced tab clicked');
-        //     cf7_data_pass_around_model(panel,model,view);
-        // });
+        // this ensures the data remains the same even after switching back from advanced tab to content tab
+        $(".elementor-panel").mouseenter(function(){
 
-        // $('.elementor-controls-stack').on('mouseenter', function() {
-        //     //console.log('mouse enter content section');
-        //     $(".elementor-control-section_content").on("click", function (event) {
-        //         console.log('section change handler');
-        //         setTimeout(function(){
-        //             addEditHandler();
-        //         }, 100);
-        //     });
-        // });
+            $(".elementor-tab-control-content").mouseenter(function(){
+                
+                // this ensures the data remains the same even after switching back from advanced tab to content tab
+                $( '.elementor-tab-control-content a' ).on( 'click', function(event){
+                    cf7_data_pass_around_model(panel,model,view);
+                });
+            });
+
+            // fix datalose after switching control section
+            $(".elementor-control-section_content").on("click", function (event) {
+                cf7_data_pass_around_model(panel,model,view);
+            });
+            
+        });
 
         function editButtonFunction(){
             // loader add on modal
