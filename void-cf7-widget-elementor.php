@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Void Contact Form 7 Widget For Elementor Page Builder
  * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with CF7 (contact form 7).
- * Version:     1.1.2
+ * Version:     1.1.3
  * Author:      voidCoders
  * Plugin URI:  https://demo.voidcoders.com/plugins/contact-form7-widget-for-elementor/
  * Author URI:  https://voidcoders.com
@@ -11,7 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define('CF7_WIDGET_E_VERSION', '1.1.2');
+define('CF7_WIDGET_E_VERSION', '1.1.3');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url( __FILE__ )));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path( __FILE__ )));
 
