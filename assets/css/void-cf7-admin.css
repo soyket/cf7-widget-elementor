@@ -20,33 +20,33 @@
 }
 
 /* notice css start */
-.void-query-promotion-notice{
+.cf7-widget-promotion-notice{
 	background: linear-gradient(to right, #4E40F1 0%, #ffccff 100%);
 	border-left-color: linear-gradient(to bottom, #3F2BE2 20%, #0066ff 45%);
 }
-.void-query-promotion-notice .notice-dismiss:before{
+.cf7-widget-promotion-notice .notice-dismiss:before{
 	font-size: 22px;
 }
-.void-query-message-inner {
+.cf7-widget-message-inner {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
-.void-query-message-icon,
-.void-query-message-icon > img{
+.cf7-widget-message-icon,
+.cf7-widget-message-icon > img{
 	max-height: 200px;
 	width: auto;
 }
-.void-query-message-content{
+.cf7-widget-message-content{
 	padding: 0 20px;
 }
-.void-query-message-content p{
+.cf7-widget-message-content p{
 	padding: 0;
 	margin: 0;
 	font-size: 14px;
 	color: #000;
 }
-.void-query-message-action{
+.cf7-widget-message-action{
 	text-align: center;
     display: flex;
     -webkit-box-orient: vertical;
@@ -54,7 +54,7 @@
     flex-direction: column;
     margin-left: auto;
 }
-.void-query-message-action .void-query-button{
+.cf7-widget-message-action .cf7-widget-button{
 	background-color: #d30c5c;
     color: #fff;
     border-color: #7c1337;
@@ -69,16 +69,16 @@
 	margin: 5px;
 	font-size: 16px;
 }
-.void-query-message-action .void-query-button:hover{
+.cf7-widget-message-action .cf7-widget-button:hover{
 	font-size: 18px;
 }
 
-.void-query-message-action .void-query-never-show{
+.cf7-widget-message-action .cf7-widget-never-show{
 	color: #D0A7FB;
 	margin: 20px 20px 0 20px;
 }
 
-.void-query-message-action .void-query-never-show:hover{
+.cf7-widget-message-action .cf7-widget-never-show:hover{
 	color: #D0A7FB;
 }
 

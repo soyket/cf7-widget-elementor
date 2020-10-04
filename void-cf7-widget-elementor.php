@@ -85,12 +85,12 @@ function void_cf7_widget_promotional_notice(){
                 if($diff->days >= $conditional_days ):
                     $url .= (($conditional_days == 15) ? '&discount=INSIDE10E' : '');
         ?>
-                <div class="void-query-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
-                    <div class="void-query-message-inner">
-                        <div class="void-query-message-icon">
-                            <img class="void-query-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
+                <div class="cf7-widget-promotion-notice notice is-dismissible" data-notice="void-cf7-promotion-notice-ele-query" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
+                    <div class="cf7-widget-message-inner">
+                        <div class="cf7-widget-message-icon">
+                            <img class="cf7-widget-notice-icon" src="https://elequerybuilder.com/wp-content/uploads/2020/05/EQ-Banner.png" alt="voidCoders promotional banner">
                         </div>
-                        <div class="void-query-message-content">
+                        <div class="cf7-widget-message-content">
                             <?php if ($conditional_days == 15) :?>
                                 <p>Here is a Little gift for you!</p>
                                 <p>Get <strong>Ele Query Builder</strong> to build custom query without code with <strong>10% Discount</strong>. <strong>Use Coupon - INSIDE10E</strong></p>
@@ -100,10 +100,10 @@ function void_cf7_widget_promotional_notice(){
                                 <p>Woocommerce meta and events calendar with no CODE</p>
                             <?php endif; ?>
                         </div>
-                        <div class="void-query-message-action">
-                            <a class="void-query-button" target="__blank" href="<?php echo esc_url($url); ?>">Check Now</a>
-                            <!-- <a class="void-query-remind-later" href="#">Remind me later -> </a> -->
-                            <a class="void-query-never-show" href="#">Never show again -> </a>
+                        <div class="cf7-widget-message-action">
+                            <a class="cf7-widget-button" target="__blank" href="<?php echo esc_url($url); ?>">Check Now</a>
+                            <!-- <a class="cf7-widget-remind-later" href="#">Remind me later -> </a> -->
+                            <a class="cf7-widget-never-show" href="#">Never show again -> </a>
                         </div>
                     </div>
                 </div>
