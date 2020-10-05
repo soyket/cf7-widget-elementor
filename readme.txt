@@ -3,7 +3,7 @@ Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
 Requires at least: 4.4
 Tested up to: 5.5.1
-Stable tag: 1.1.1
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
 
 Follow us on: [Github](https://github.com/soyket/cf7-widget-elementor/).
 
-Version 1.1 ( Edit/Add contact from inside Elementor )
+New updates ( Edit/Add contact from inside Elementor )
 [youtube https://youtu.be/ZI0GMJoESaw]
 
 Latest Version Preview
