@@ -1,13 +1,13 @@
 (function($) {
-    // Hook into the "void-query-promotion-notice" class we added to the notice, so
+    // Hook into the "cf7-widget-promotion-notice" class we added to the notice, so
     // Only listen to YOUR notices being dismissed
-    var elNotice = $('.void-query-promotion-notice');
+    var elNotice = $('.cf7-widget-promotion-notice');
 
-    $( document ).on( 'click', '.void-query-promotion-notice .notice-dismiss', function () {
+    $( document ).on( 'click', '.cf7-widget-promotion-notice .notice-dismiss', function () {
         // Read the "data-notice" information to track which notice
         // is being dismissed and send it via AJAX
-        var type = $( this ).closest( '.void-query-promotion-notice' ).data( 'notice' );
-        var nonce = $( this ).closest( '.void-query-promotion-notice' ).data( 'nonce' );
+        var type = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'notice' );
+        var nonce = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'nonce' );
 
         //elNotice.hide();
         console.log('cross button click');
@@ -31,12 +31,12 @@
         });
     });
 
-    elNotice.find( '.void-query-never-show' ).on( 'click', function (e) {
+    elNotice.find( '.cf7-widget-never-show' ).on( 'click', function (e) {
         e.preventDefault();
         // Read the "data-notice" information to track which notice
         // is being dismissed and send it via AJAX
-        var type = $( this ).closest( '.void-query-promotion-notice' ).data( 'notice' );
-        var nonce = $( this ).closest( '.void-query-promotion-notice' ).data( 'nonce' );
+        var type = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'notice' );
+        var nonce = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'nonce' );
 
         elNotice.hide();
 
