@@ -71,18 +71,7 @@
         // this ensures the data remains the same even after switching back from advanced tab to content tab
         $(".elementor-panel").mouseenter(function(){
 
-            $(".elementor-tab-control-content").mouseenter(function(){
-                
-                // this ensures the data remains the same even after switching back from advanced tab to content tab
-                $( '.elementor-tab-control-content a' ).on( 'click', function(event){
-                    cf7_data_pass_around_model(panel,model,view);
-                });
-            });
-
-            // fix datalose after switching control section
-            $(".elementor-control-section_content").on("click", function (event) {
-                cf7_data_pass_around_model(panel,model,view);
-            });
+            cf7_data_pass_around_model(panel,model,view);
             
         });
 
