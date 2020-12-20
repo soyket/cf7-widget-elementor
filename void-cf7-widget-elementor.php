@@ -7,6 +7,8 @@
  * Plugin URI:  https://demo.voidcoders.com/plugins/contact-form7-widget-for-elementor/
  * Author URI:  https://voidcoders.com
  * Text Domain: void
+ * Elementor tested up to: 3.0.14
+ * Elementor Pro tested up to: 3.0.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
