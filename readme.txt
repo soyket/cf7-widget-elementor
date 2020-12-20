@@ -77,6 +77,8 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
+= 1.1.6 =
+* Fix: Elementor compatiability added.
 = 1.1.5 =
 * Fix: Elementor editor js issue during cf7 create and update on elementor editor. 
 = 1.1.4 =
