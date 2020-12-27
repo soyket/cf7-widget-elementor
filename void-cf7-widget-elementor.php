@@ -259,19 +259,34 @@ function void_cf7_opt_in_user_data_track()
     $opted_in = $account_data->isOptedIn();
     $is_signed = $account_data->isSigned();
     $id = $account_data->getId();
-    // $secret = $account_data->getSecret();
-    if (!$opted_in) : ?>
-        <div class="notice notice-warning is-dismissible">
-            <p class="cft-7-notice-text">We hope that you enjoy using our plugin Contact Form 7 Widget For Elementor Page Builder. If you agree we want to get some</p>
-            <div class="cf7-non-sensitive">non sensitive
-                <span class="cf7-non-sensitive-tooltip">Your profile information (name and email) ​
-                    Your site information (URL, WP version, PHP info, plugins & themes)
-                    Plugin notices (updates, announcements, marketing, no spam)
-                    Plugin events (activation, deactivation and uninstall)
+
+    // notice dismiss date form database
+    $db_dismiss_date = get_option('dismissed-void-cf7-usage-data-track-at');
+    // create a date object from database date
+    $dismiss_date = date_create($db_dismiss_date);
+    // create a current date object
+    $current_date = date_create(date('Y-m-d'));
+    // get difference of both date
+    $diff = date_diff($dismiss_date, $current_date);
+    // make conditional days. if date found in database, it will be 30.
+    // otherwise it will be 0. Becase difference return 0 if there was no data on database
+    $conditional_days = ($db_dismiss_date) ? 15 : 0;
+
+    if (!$opted_in && $diff->days >= $conditional_days) : ?>
+        <div class="notice notice-warning is-dismissible void-cf7-widget-data-track-notice" data-notice="void-cf7-usage-data-track" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
+            <p class="void-cf7-notice-text">We hope that you enjoy using our plugin Contact Form 7 Widget For Elementor Page Builder. If you agree we want to get some</p>
+            <div class="void-cf7-non-sensitive">non sensitive
+                <span class="void-cf7-non-sensitive-tooltip">
+                    <ul>
+                        <li>Your profile information (name and email)</li>
+                        <li>Your site information (URL, WP version, PHP info, plugins & themes)</li>
+                        <li>Plugin notices (updates, announcements, marketing, no spam)</li>
+                        <li>Plugin events (activation, deactivation and uninstall)</li>
+                    </ul> ​
                 ​</span>
             </div>
-            <p class="cft-7-notice-text">data from you to improve our plugin and keep you updated with security and other fixes time to time.</p>
-            <p class="cft-7-notice-text"><a class="analyst-action-opt analyst-opt-in" analyst-plugin-id="<?php echo esc_attr($id); ?>" analyst-plugin-signed="<?php echo esc_attr($is_signed); ?>">Opt In</a></p>
+            <p class="void-cf7-notice-text">data from you to improve our plugin and keep you updated with security and other fixes time to time.</p>
+            <p class="void-cf7-notice-text"><a class="analyst-action-opt analyst-opt-in" analyst-plugin-id="<?php echo esc_attr($id); ?>" analyst-plugin-signed="<?php echo esc_attr($is_signed); ?>">Opt In</a></p>
         </div>
 <?php endif;
 }

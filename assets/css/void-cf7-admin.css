@@ -81,22 +81,29 @@
 .cf7-widget-message-action .cf7-widget-never-show:hover{
 	color: #D0A7FB;
 }
+/* notice css end */
 
-div.cf7-non-sensitive {
+/* data track notice css start*/
+
+.void-cf7-widget-data-track-notice p{
+	display: inline-block;
+}
+
+.void-cf7-non-sensitive {
 	position: relative;
 	display: inline-block;
 	border-bottom: 1px dotted black;
+	color: #00a0d2;
 }
 
-
-div.cf7-non-sensitive span.cf7-non-sensitive-tooltip {
+.void-cf7-non-sensitive .void-cf7-non-sensitive-tooltip {
 	visibility: hidden;
-	width: 120px;
-	background-color: black;
+	width: 300px;
+	background-color: #00a0d2;
 	color: #fff;
-	text-align: center;
+	text-align: left;
 	border-radius: 6px;
-	padding: 5px 0;
+	padding: 10px;
 
 	/* Position the tooltip */
 	position: absolute;
@@ -106,8 +113,13 @@ div.cf7-non-sensitive span.cf7-non-sensitive-tooltip {
 	margin-left: -60px;
 }
 
-div.cf7-non-sensitive:hover .span.cf7-non-sensitive-tooltip {
+.void-cf7-non-sensitive-tooltip li{
+	list-style: inside;
+	padding: 0 0 10px 0;
+}
+
+.void-cf7-non-sensitive:hover .void-cf7-non-sensitive-tooltip {
 	visibility: visible;
 }
 
-/* notice css end */
+/* data track notice css end*/

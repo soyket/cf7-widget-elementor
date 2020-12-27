@@ -61,4 +61,29 @@
         });
     });
 
+    $( document ).on( 'click', '.void-cf7-widget-data-track-notice .notice-dismiss', function () {
+        // Read the "data-notice" information to track which notice
+        // is being dismissed and send it via AJAX
+        var type = $( this ).closest( '.void-cf7-widget-data-track-notice' ).data( 'notice' );
+        var nonce = $( this ).closest( '.void-cf7-widget-data-track-notice' ).data( 'nonce' );
+        console.log('dismiss click');
+        // Make an AJAX call
+        // Since WP 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+        $.ajax({
+            // url of ajax request, value of voidCf7Admin.ajaxUrl is localized during enqueue script
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'dismissed_usage_data_track_void_cf7',
+                type: type,
+                status: 'remind-me-later',
+            },
+            // wp verify nonce automatically after sending nonce like this
+            headers: {
+                'X-WP-Nonce': nonce
+            },
+            dataType: 'json',
+        });
+    });
+
 })(jQuery);

@@ -80,3 +80,21 @@ if( !function_exists('promotional_notice_dismiss_handler')){
 }
 
 add_action('wp_ajax_dismissed_promotional_notice_handler', 'promotional_notice_dismiss_handler');
+
+if( !function_exists('dismissed_usage_data_track_void_cf7')){
+  
+  function dismissed_usage_data_track_void_cf7(){
+    // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
+    $type = sanitize_text_field($_POST['type']);
+  
+    $status = sanitize_text_field($_POST['status']);
+  
+    if($status == 'remind-me-later'){
+      // Store it in the options table
+      update_option( 'dismissed-' . $type . "-at", date('Y-m-d') );
+  
+    }
+  }
+}
+
+add_action('wp_ajax_dismissed_usage_data_track_void_cf7', 'dismissed_usage_data_track_void_cf7');
