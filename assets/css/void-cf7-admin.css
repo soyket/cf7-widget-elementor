@@ -82,4 +82,32 @@
 	color: #D0A7FB;
 }
 
+div.cf7-non-sensitive {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+
+div.cf7-non-sensitive span.cf7-non-sensitive-tooltip {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+div.cf7-non-sensitive:hover .span.cf7-non-sensitive-tooltip {
+	visibility: visible;
+}
+
 /* notice css end */
