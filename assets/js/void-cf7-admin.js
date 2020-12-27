@@ -9,9 +9,6 @@
         var type = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'notice' );
         var nonce = $( this ).closest( '.cf7-widget-promotion-notice' ).data( 'nonce' );
 
-        //elNotice.hide();
-        console.log('cross button click');
-
         // Make an AJAX call
         // Since WP 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
         $.ajax({
@@ -40,8 +37,6 @@
 
         elNotice.hide();
 
-        // console.log('never click');
-
         // Make an AJAX call
         // Since WP 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
         $.ajax({
@@ -66,7 +61,6 @@
         // is being dismissed and send it via AJAX
         var type = $( this ).closest( '.void-cf7-widget-data-track-notice' ).data( 'notice' );
         var nonce = $( this ).closest( '.void-cf7-widget-data-track-notice' ).data( 'nonce' );
-        console.log('dismiss click');
         // Make an AJAX call
         // Since WP 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
         $.ajax({
