@@ -2,21 +2,21 @@
 
 /**
  * Plugin Name: Void Contact Form 7 Widget For Elementor Page Builder
- * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with CF7 (contact form 7).
- * Version:     1.1.6
+ * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with Contact Form 7
+ * Version:     1.1.7
  * Author:      voidCoders
- * Plugin URI:  https://demo.voidcoders.com/plugins/contact-form7-widget-for-elementor/
+ * Plugin URI:  https://voidcoders.com/product/contact-form7-widget-for-elementor-free/
  * Author URI:  https://voidcoders.com
  * Text Domain: void
- * Elementor tested up to: 3.0.14
- * Elementor Pro tested up to: 3.0.8
+ * Elementor tested up to: 3.3.0
+ * Elementor Pro tested up to: 3.3.2
  */
 
 use Account\AccountDataFactory;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('CF7_WIDGET_E_VERSION', '1.1.6');
+define('CF7_WIDGET_E_VERSION', '1.1.7');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 
@@ -204,7 +204,7 @@ function void_cf7_opt_in_user_data_track()
     // get data factory instance
     $account_data_factory = AccountDataFactory::instance();
     // get account data by using datafactory object
-    $account_data = $account_data_factory->getAccountDataByBasePath('cf7-widget-elementor/void-cf7-widget-elementor.php');
+    $account_data = $account_data_factory->getAccountDataByBasePath(plugin_basename( __FILE__ ));
     // account has private property
     // so, use this object to get those by it's public method
     $opted_in = $account_data->isOptedIn();

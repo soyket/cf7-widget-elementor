@@ -27,7 +27,6 @@
 		</div>
 		<div class="analyst-install-footer analyst-modal-def-top-padding">
 			<span class="analyst-action-text" id="analyst-permissions-toggle">Learn more</span>
-			<span id="analyst-powered-by" style="display: none;">Powered by <a href="https://sellcodes.com/blog/wordpress-feedback-system-for-plugin-creators/?utm_source=optin_screen" target="_blank" class="analyst-link">Sellcodes.com</a></span>
 			<span class="analyst-action-text analyst-install-modal-close" id="analyst-install-skip">Skip</span>
 		</div>
 		<div id="analyst-install-error" class="analyst-modal-def-top-padding" style="display: none; text-align: center">
