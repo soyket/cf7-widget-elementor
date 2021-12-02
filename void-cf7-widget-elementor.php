@@ -144,6 +144,12 @@ function void_cf7_check_installation_time()
             add_action('admin_notices', 'void_cf7_display_admin_notice');
         }
     }
+
+    if ( 'yes' !== get_option( 'void_cf7_elep_2021_temporary' ) ) {
+        if ( strtotime('-3 days') >= get_option( 'void_cf7_elep_2021_temporary_time', strtotime('-3 days') ) ) {
+            add_action('admin_notices', 'void_cf7_promotion_2021_admin_notice');
+        }
+    }
 }
 add_action('admin_init', 'void_cf7_check_installation_time');
 
@@ -165,6 +171,28 @@ function void_cf7_display_admin_notice()
             "_blank">Rate Now!</a><a href="%s" class="void-cf7-review-done"> Already Done !</a></div></div>', $plugin_info['TextDomain']), $plugin_info['Name'], $void_url, $reviewurl, $dont_disturb);
     }
 }
+
+/**
+ * Display Admin Notice, asking for a review
+ **/
+function void_cf7_promotion_2021_admin_notice()
+{
+    $temporary_hide = esc_url(get_admin_url() . '?void_cf7_elep_2021_temporary=1');
+    $dont_disturb   = esc_url(get_admin_url() . '?void_cf7_elep_2021_never=1');
+    $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
+    ?>
+    <div class="notice" style="border: none; padding: 0px; position: relative;">
+        <a href="https://elemailer.com/pricing/"target="_blank">
+            <img src="<?php echo esc_attr( $banner_url ); ?>" alt="elemailer-promotion-2021" style="width: 100%;">
+        </a>
+        <a href="<?php echo $temporary_hide; ?>">
+            <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+        </a>
+        <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 10px; bottom: 10px; color: #777;"><?php esc_html_e( 'Never show', 'void' ) ?></span></a>
+    </div>
+    <?php
+}
+
 // remove the notice for the user if review already done or if the user does not want to
 function void_cf7_spare_me()
 {
@@ -172,6 +200,19 @@ function void_cf7_spare_me()
         $spare_me = $_GET['spare_me2'];
         if ($spare_me == 1) {
             add_option('void_cf7_spare_me', TRUE);
+        }
+    }
+
+    if ( isset( $_GET['void_cf7_elep_2021_temporary'] ) && ! empty( $_GET['void_cf7_elep_2021_temporary'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_elep_2021_temporary'] ) ) {
+            add_option('void_cf7_elep_2021_temporary', 'yes' );
+            add_option('void_cf7_elep_2021_temporary_time', strtotime("now") );
+        }
+    }
+
+    if ( isset( $_GET['void_cf7_elep_2021_never'] ) && ! empty( $_GET['void_cf7_elep_2021_never'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_elep_2021_never'] ) ) {
+            add_option('void_cf7_elep_2021_never', 'yes' );
         }
     }
 }
