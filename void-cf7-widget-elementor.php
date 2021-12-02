@@ -177,17 +177,17 @@ function void_cf7_display_admin_notice()
  */
 function void_cf7_promotion_2021_admin_notice()
 {
-    $temporary_hide = esc_url(get_admin_url() . '?void_cf7_elep_2021_temporary=1');
-    $dont_disturb   = esc_url(get_admin_url() . '?void_cf7_elep_2021_never=1');
-    $elemailer_link = esc_url('https://elemailer.com/pricing/');
+    $temporary_hide = esc_url( get_admin_url() . '?void_cf7_elep_2021_temporary=1' );
+    $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_elep_2021_never=1' );
+    $elemailer_link = esc_url( 'https://elemailer.com/pricing/' );
     $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
-        <a href="<?php echo $elemailer_link; ?>"target="_blank">
+        <a href="<?php echo $elemailer_link; ?>" target="_blank">
             <img src="<?php echo esc_attr( $banner_url ); ?>" alt="elemailer-promotion-2021" style="width: 100%;">
         </a>
         <a href="<?php echo $temporary_hide; ?>">
-            <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+            <button type="button" class="notice-dismiss"><span class="screen-reader-text"> <?php esc_html_e( 'Dismiss this notice.', 'void' ); ?></span></button>
         </a>
         <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 10px; bottom: 10px; color: #777;"><?php esc_html_e( 'Never show', 'void' ) ?></span></a>
     </div>
