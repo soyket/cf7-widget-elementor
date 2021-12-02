@@ -2,8 +2,8 @@
 Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
 Requires at least: 4.4
-Tested up to: 5.8
-Stable tag: 1.1.7
+Tested up to: 5.8.2
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,8 +28,11 @@ For more details :[VOID CF7 Elementor Widget](https://voidcoders.com/product/con
 For our other elementor & WP works visit : [VOID CODERS](https://voidcoders.com).
 
 For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
+<h3>Need to design Contact form 7 Emails with Elementor? </h3>  👉[Check Elemailer - A drag & drop email builder for WordPress](https://elemailer.com?utm_source=void-cf7-repo&utm_medium=wordpressrepo&utm_id=cf7-org).
 
 New updates ( Edit/Add contact from inside Elementor )
+
+
 [youtube https://youtu.be/ZI0GMJoESaw]
 
 Latest Version Preview
@@ -75,6 +78,10 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
+= 1.1.8 =
+* Fix: Fatal error if folder renmaned / site migration is done
+* Fix: Compatiblity with latest WordPress version
+* Fix: Compatiblity with latest Elementor & Elementor pro
 = 1.1.7 =
 * Fix: Elementor compatiability added.
 * New: Added opt-in system for sending updates if needed
@@ -110,4 +117,4 @@ Update the plugin either via wp dashboard or via FTP. After update make sure you
 = 1.0.1 =
 * Custom CSS Adding option 
 = 1.0.0 =
-* Initial Launch 
+* Initial Release 
