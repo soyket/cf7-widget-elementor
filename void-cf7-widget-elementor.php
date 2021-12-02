@@ -145,7 +145,7 @@ function void_cf7_check_installation_time()
         }
     }
 
-    if ( 'yes' !== get_option( 'void_cf7_elep_2021_temporary' ) ) {
+    if ( 'yes' !== get_option( 'void_cf7_elep_2021_never' ) ) {
         if ( strtotime( '-3 days' ) >= get_option( 'void_cf7_elep_2021_temporary_time', strtotime( '-3 days' ) ) ) {
             add_action( 'admin_notices', 'void_cf7_promotion_2021_admin_notice' );
         }
