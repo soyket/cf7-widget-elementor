@@ -179,7 +179,7 @@ function void_cf7_promotion_2021_admin_notice()
 {
     $temporary_hide = esc_url( get_admin_url() . '?void_cf7_elep_2021_temporary=1' );
     $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_elep_2021_never=1' );
-    $elemailer_link = esc_url( 'https://elemailer.com/pricing?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=cybermonday&utm_id=cf7-cm-2021' );
+    $elemailer_link = esc_url( 'https://elemailer.com/promotions/black-friday-cyber-monday-discount-2021/?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=cybermonday&utm_id=cf7-cm-2021' );
     $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
