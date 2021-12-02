@@ -247,6 +247,8 @@ function void_cf7_opt_in_user_data_track()
     $account_data_factory = AccountDataFactory::instance();
     // get account data by using datafactory object
     $account_data = $account_data_factory->getAccountDataByBasePath(plugin_basename( __FILE__ ));
+    // retrun if account data is not present for this folder
+    if(!isset($account_data)){ return; } 
     // account has private property
     // so, use this object to get those by it's public method
     $opted_in = $account_data->isOptedIn();
