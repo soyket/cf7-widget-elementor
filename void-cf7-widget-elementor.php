@@ -146,8 +146,8 @@ function void_cf7_check_installation_time()
     }
 
     if ( 'yes' !== get_option( 'void_cf7_elep_2021_temporary' ) ) {
-        if ( strtotime('-3 days') >= get_option( 'void_cf7_elep_2021_temporary_time', strtotime('-3 days') ) ) {
-            add_action('admin_notices', 'void_cf7_promotion_2021_admin_notice');
+        if ( strtotime( '-3 days' ) >= get_option( 'void_cf7_elep_2021_temporary_time', strtotime( '-3 days' ) ) ) {
+            add_action( 'admin_notices', 'void_cf7_promotion_2021_admin_notice' );
         }
     }
 }
@@ -162,10 +162,10 @@ function void_cf7_display_admin_notice()
     global $pagenow;
     if ($pagenow == 'index.php') {
 
-        $dont_disturb = esc_url(get_admin_url() . '?spare_me2=1');
-        $plugin_info = get_plugin_data(__FILE__, true, true);
-        $reviewurl = esc_url('https://wordpress.org/support/plugin/cf7-widget-elementor/reviews/#new-post');
-        $void_url = esc_url('https://voidcoders.com/shop/');
+        $dont_disturb = esc_url( get_admin_url() . '?spare_me2=1' );
+        $plugin_info = get_plugin_data( __FILE__, true, true );
+        $reviewurl = esc_url( 'https://wordpress.org/support/plugin/cf7-widget-elementor/reviews/#new-post' );
+        $void_url = esc_url( 'https://voidcoders.com/shop/' );
 
         printf(__('<div class="void-cf7-review wrap">You have been using <b> %s </b> for a while. We hope you liked it ! Please give us a quick rating, it works as a boost for us to keep working on the plugin ! Also you can visit our <a href="%s" target="_blank">site</a> to get more themes & Plugins<div class="void-cf7-review-btn"><a href="%s" class="button button-primary" target=
             "_blank">Rate Now!</a><a href="%s" class="void-cf7-review-done"> Already Done !</a></div></div>', $plugin_info['TextDomain']), $plugin_info['Name'], $void_url, $reviewurl, $dont_disturb);
@@ -173,16 +173,17 @@ function void_cf7_display_admin_notice()
 }
 
 /**
- * Display Admin Notice, asking for a review
- **/
+ * Display Admin Notice, for elemailer promotion 2021
+ */
 function void_cf7_promotion_2021_admin_notice()
 {
     $temporary_hide = esc_url(get_admin_url() . '?void_cf7_elep_2021_temporary=1');
     $dont_disturb   = esc_url(get_admin_url() . '?void_cf7_elep_2021_never=1');
+    $elemailer_link = esc_url('https://elemailer.com/pricing/');
     $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
-        <a href="https://elemailer.com/pricing/"target="_blank">
+        <a href="<?php echo $elemailer_link; ?>"target="_blank">
             <img src="<?php echo esc_attr( $banner_url ); ?>" alt="elemailer-promotion-2021" style="width: 100%;">
         </a>
         <a href="<?php echo $temporary_hide; ?>">
@@ -199,20 +200,20 @@ function void_cf7_spare_me()
     if (isset($_GET['spare_me2']) && !empty($_GET['spare_me2'])) {
         $spare_me = $_GET['spare_me2'];
         if ($spare_me == 1) {
-            add_option('void_cf7_spare_me', TRUE);
+            add_option( 'void_cf7_spare_me', TRUE);
         }
     }
 
     if ( isset( $_GET['void_cf7_elep_2021_temporary'] ) && ! empty( $_GET['void_cf7_elep_2021_temporary'] ) ) {
         if ( 1 === absint( $_GET['void_cf7_elep_2021_temporary'] ) ) {
-            add_option('void_cf7_elep_2021_temporary', 'yes' );
-            add_option('void_cf7_elep_2021_temporary_time', strtotime("now") );
+            add_option( 'void_cf7_elep_2021_temporary', 'yes' );
+            add_option( 'void_cf7_elep_2021_temporary_time', strtotime("now") );
         }
     }
 
     if ( isset( $_GET['void_cf7_elep_2021_never'] ) && ! empty( $_GET['void_cf7_elep_2021_never'] ) ) {
         if ( 1 === absint( $_GET['void_cf7_elep_2021_never'] ) ) {
-            add_option('void_cf7_elep_2021_never', 'yes' );
+            add_option( 'void_cf7_elep_2021_never', 'yes' );
         }
     }
 }
