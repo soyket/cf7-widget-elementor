@@ -183,13 +183,13 @@ function void_cf7_promotion_2021_admin_notice()
     $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
-        <a href="<?php echo $elemailer_link; ?>" target="_blank">
+        <a style="display:flex;" href="<?php echo $elemailer_link; ?>" target="_blank">
             <img src="<?php echo esc_attr( $banner_url ); ?>" alt="elemailer-promotion-2021" style="width: 100%;">
         </a>
         <a href="<?php echo $temporary_hide; ?>">
             <button type="button" class="notice-dismiss"><span class="screen-reader-text"> <?php esc_html_e( 'Dismiss this notice.', 'void' ); ?></span></button>
         </a>
-        <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 10px; bottom: 10px; color: #777;"><?php esc_html_e( 'Never show', 'void' ) ?></span></a>
+        <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 10px; bottom: 10px; color: #696969a8;"><?php esc_html_e( 'Never show', 'void' ) ?></span></a>
     </div>
     <?php
 }
