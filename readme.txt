@@ -3,7 +3,7 @@ Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
 Requires at least: 4.4
 Tested up to: 5.8.2
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
