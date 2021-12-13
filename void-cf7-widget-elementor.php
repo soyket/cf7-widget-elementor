@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Void Contact Form 7 Widget For Elementor Page Builder
  * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with Contact Form 7
- * Version:     1.1.8
+ * Version:     1.1.9
  * Author:      voidCoders
  * Plugin URI:  https://voidcoders.com/product/contact-form7-widget-for-elementor-free/
  * Author URI:  https://voidcoders.com
@@ -16,7 +16,7 @@ use Account\AccountDataFactory;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('CF7_WIDGET_E_VERSION', '1.1.7');
+define('CF7_WIDGET_E_VERSION', '1.1.9');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 
@@ -145,9 +145,9 @@ function void_cf7_check_installation_time()
         }
     }
 
-    if ( 'yes' !== get_option( 'void_cf7_elep_2021_never' ) ) {
-        if ( strtotime( '-3 days' ) >= get_option( 'void_cf7_elep_2021_temporary_time', strtotime( '-3 days' ) ) ) {
-            add_action( 'admin_notices', 'void_cf7_promotion_2021_admin_notice' );
+    if ( 'yes' !== get_option( 'void_cf7_email_with_elementor_never' ) ) {
+        if ( strtotime( '-3 days' ) >= get_option( 'void_cf7_email_with_elementor_time', strtotime( '-3 days' ) ) ) {
+            add_action( 'admin_notices', 'void_cf7_email_with_elementor_admin_notice' );
         }
     }
 }
@@ -173,14 +173,14 @@ function void_cf7_display_admin_notice()
 }
 
 /**
- * Display Admin Notice, for elemailer promotion 2021
+ * Display Admin Notice, for elemailer banner
  */
-function void_cf7_promotion_2021_admin_notice()
+function void_cf7_email_with_elementor_admin_notice()
 {
-    $temporary_hide = esc_url( get_admin_url() . '?void_cf7_elep_2021_temporary=1' );
-    $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_elep_2021_never=1' );
-    $elemailer_link = esc_url( 'https://elemailer.com/pricing?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=cybermonday&utm_id=cf7-cm-2021' );
-    $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/elemailer-promotion-2021.png';
+    $temporary_hide = esc_url( get_admin_url() . '?void_cf7_email_with_elementor=1' );
+    $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_email_with_elementor_never=1' );
+    $elemailer_link = esc_url( 'https://elemailer.com/pricing?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=general&utm_id=cf7-2021' );
+    $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/banner-with-elemailer.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
         <a style="display:flex;" href="<?php echo $elemailer_link; ?>" target="_blank">
@@ -204,18 +204,22 @@ function void_cf7_spare_me()
         }
     }
 
-    if ( isset( $_GET['void_cf7_elep_2021_temporary'] ) && ! empty( $_GET['void_cf7_elep_2021_temporary'] ) ) {
-        if ( 1 === absint( $_GET['void_cf7_elep_2021_temporary'] ) ) {
-            add_option( 'void_cf7_elep_2021_temporary', 'yes' );
-            add_option( 'void_cf7_elep_2021_temporary_time', strtotime("now") );
+    if ( isset( $_GET['void_cf7_email_with_elementor'] ) && ! empty( $_GET['void_cf7_email_with_elementor'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_email_with_elementor'] ) ) {
+            update_option( 'void_cf7_email_with_elementor', 'yes' );
+            update_option( 'void_cf7_email_with_elementor_time', strtotime("now") );
         }
     }
 
-    if ( isset( $_GET['void_cf7_elep_2021_never'] ) && ! empty( $_GET['void_cf7_elep_2021_never'] ) ) {
-        if ( 1 === absint( $_GET['void_cf7_elep_2021_never'] ) ) {
-            add_option( 'void_cf7_elep_2021_never', 'yes' );
+    if ( isset( $_GET['void_cf7_email_with_elementor_never'] ) && ! empty( $_GET['void_cf7_email_with_elementor_never'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_email_with_elementor_never'] ) ) {
+            update_option( 'void_cf7_email_with_elementor_never', 'yes' );
         }
     }
+
+    delete_option( 'void_cf7_elep_2021_temporary' );
+    delete_option( 'void_cf7_email_with_elementor_time' );
+    delete_option( 'void_cf7_email_with_elementor_never' );
 }
 add_action('admin_init', 'void_cf7_spare_me', 5);
 
