@@ -125,7 +125,7 @@ add_action('admin_notices', 'void_cf7_widget_promotional_notice');
 function void_cf7_activation_time()
 {
     $get_installation_time = strtotime("now");
-    add_option('void_cf7_elementor_activation_time', $get_installation_time);
+    update_option('void_cf7_elementor_activation_time', $get_installation_time);
 }
 register_activation_hook(__FILE__, 'void_cf7_activation_time');
 
@@ -179,7 +179,7 @@ function void_cf7_email_with_elementor_admin_notice()
 {
     $temporary_hide = esc_url( get_admin_url() . '?void_cf7_email_with_elementor=1' );
     $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_email_with_elementor_never=1' );
-    $elemailer_link = esc_url( 'https://elemailer.com/pricing?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=general&utm_id=cf7-2021' );
+    $elemailer_link = esc_url( 'https://elemailer.com/?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=general&utm_id=cf7-2021' );
     $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/banner-with-elemailer.png';
     ?>
     <div class="notice" style="border: none; padding: 0px; position: relative;">
@@ -200,7 +200,7 @@ function void_cf7_spare_me()
     if (isset($_GET['spare_me2']) && !empty($_GET['spare_me2'])) {
         $spare_me = $_GET['spare_me2'];
         if ($spare_me == 1) {
-            add_option( 'void_cf7_spare_me', TRUE);
+            update_option( 'void_cf7_spare_me', TRUE);
         }
     }
 
