@@ -8,7 +8,7 @@
  * Plugin URI:  https://voidcoders.com/product/contact-form7-widget-for-elementor-free/
  * Author URI:  https://voidcoders.com
  * Text Domain: void
- * Elementor tested up to: 3.5
+ * Elementor tested up to: 3.6
  * Elementor Pro tested up to: 3.6
  */
 
