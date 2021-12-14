@@ -218,8 +218,8 @@ function void_cf7_spare_me()
     }
 
     delete_option( 'void_cf7_elep_2021_temporary' );
-    delete_option( 'void_cf7_email_with_elementor_time' );
-    delete_option( 'void_cf7_email_with_elementor_never' );
+    delete_option( 'void_cf7_elep_2021_temporary_time' );
+    delete_option( 'void_cf7_elep_2021_never' );
 }
 add_action('admin_init', 'void_cf7_spare_me', 5);
 
