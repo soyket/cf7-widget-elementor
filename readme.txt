@@ -1,9 +1,9 @@
 === Void Contact Form 7 Widget For Elementor Page Builder ===
 Contributors: voidthemes,voidcoders,soyket,shawon786
-Tags: page-builder, elementor, cf7, contact-form-7, contact-form-7 widget, widget, elementor add on, email, contact, form
+Tags: contact form, elementor, cf7, contact-form-7, contact-form-7 widget, page-builder, widget, elementor add on, email, contact, form
 Requires at least: 4.4
 Tested up to: 5.8.2
-Stable tag: 1.1.9
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,8 @@ You must have [Contact form 7](https://wordpress.org/plugins/contact-form-7/) in
 This plugin adds new element / widget to Elementor Page Builder which helps you to easily drag and drop contact form 7 forms from a drop down list. No need of going in cf7 & copying the shortcode and addding to shortcode widget of elementor anymore !! 
 
 * Check out our new feature to edit and create contact form from elementor editor. You don't need to leave elementor editor to modify or create contact form 7. boom! 
-* Now only Drag and drop the widget inside elementor builder & choose your contact form ! Done ! 
+* Now only Drag and drop the widget inside elementor builder & choose your contact form.
+* Multiple style options, hover, focus and even custom css option if you are into it. 
 * Want to define style for input, lable, send button, success ? No problem ! This plugin let's you do those directly from elementor screen!
 * Want to add custom page to redirect to when the form is submitted ? That is also possible now !
 Yet this is just a simple plugin for simple users :) 
@@ -30,12 +31,15 @@ For our other elementor & WP works visit : [VOID CODERS](https://voidcoders.com)
 For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
 <h3>Need to design Contact form 7 Emails with Elementor? </h3>  👉[Check Elemailer - A drag & drop email builder for WordPress](https://elemailer.com?utm_source=void-cf7-repo&utm_medium=wordpressrepo&utm_id=cf7-org).
 
-New updates ( Edit/Add contact from inside Elementor )
+Version 2.0 Preview ( New Style controls with hover, focus, gradient etc )
 
+[youtube https://youtu.be/_vMHL6doikw]
+
+Edit/Add contact from inside Elementor
 
 [youtube https://youtu.be/ZI0GMJoESaw]
 
-Latest Version Preview
+Another Preview
 [youtube https://youtu.be/MlzrZ0zXM24]
 
 Older Version Preview
@@ -63,7 +67,7 @@ Note: This plugin is an addon of Elementor Page Builder (https://wordpress.org/p
 
 = Where can to find the new element added =
 
-Our Contact Form7 Widget For Elementor Page Builder adds a new section in the elementor live page builder named : VOID ELEMENTS. There you will see the widget called -Void Contact form 7- which you can drag and drop and config settings
+Our Contact Form7 Widget For Elementor Page Builder adds a new widget category in the elementor live page builder named : VOID ELEMENTS. There you will see the widget called -Void Contact form 7- which you can drag and drop and config settings
 
 
 == Screenshots ==
@@ -78,6 +82,11 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new section in the el
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
+= 2.0 =
+* New: Added many style option in Style tab
+= 1.1.9 =
+* Fix: Tweak for banner
+* Fix: Compatiblity with latest Elementor & Elementor pro
 = 1.1.8 =
 * Fix: Fatal error if folder renmaned / site migration is done
 * Fix: Compatiblity with latest WordPress version
