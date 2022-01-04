@@ -29,6 +29,9 @@ For more details :[VOID CF7 Elementor Widget](https://voidcoders.com/product/con
 For our other elementor & WP works visit : [VOID CODERS](https://voidcoders.com).
 
 For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
+
+Missing a feature or Found a bug? : [Feature Request / Bug Report](https://feedback.userreport.com/87deacdd-b91b-43cb-a92d-b53a10b7f6e2/#ideas/recent).
+
 <h3>Need to design Contact form 7 Emails with Elementor? </h3>  👉[Check Elemailer - A drag & drop email builder for WordPress](https://elemailer.com?utm_source=void-cf7-repo&utm_medium=wordpressrepo&utm_id=cf7-org).
 
 Version 2.0 Preview ( New Style controls with hover, focus, gradient etc )
