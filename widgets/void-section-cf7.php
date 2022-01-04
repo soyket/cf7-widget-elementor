@@ -1491,7 +1491,6 @@ protected function _register_controls() {
 				            [
 				                'label' => __('Success Text Color', 'void'),
 				                'type' => Controls_Manager::COLOR,
-				                'default' => '',
 				                'selectors' => [
 				                    '{{WRAPPER}} .wpcf7 form.sent .wpcf7-response-output' => 'color: {{VALUE}}',
 				                ],
@@ -1557,7 +1556,6 @@ protected function _register_controls() {
 						    [
 						        'label' => __('Fail Text Color', 'void'),
 						        'type' => Controls_Manager::COLOR,
-						        'default' => '',
 						        'selectors' => [
 						            '{{WRAPPER}} .wpcf7 form.invalid .wpcf7-response-output, {{WRAPPER}} .wpcf7 form.unaccepted .wpcf7-response-output, {{WRAPPER}} .wpcf7 form.payment-required .wpcf7-response-output' => 'color: {{VALUE}}',
 						        ],
