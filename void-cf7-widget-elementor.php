@@ -145,9 +145,9 @@ function void_cf7_check_installation_time()
         }
     }
 
-    if ( 'yes' !== get_option( 'void_cf7_email_with_elementor_never' ) ) {
-        if ( strtotime( '-3 days' ) >= get_option( 'void_cf7_email_with_elementor_time', strtotime( '-3 days' ) ) ) {
-            add_action( 'admin_notices', 'void_cf7_email_with_elementor_admin_notice' );
+    if ( 'yes' !== get_option( 'void_cf7_with_elementor_ran_never' ) ) {
+        if ( strtotime( '-15 days' ) >= get_option( 'void_cf7_with_elementor_ran_time', strtotime( '-15 days' ) ) ) {
+            add_action( 'admin_notices', 'void_cf7_with_elementor_recomended_admin_notice' );
         }
     }
 }
@@ -175,22 +175,86 @@ function void_cf7_display_admin_notice()
 /**
  * Display Admin Notice, for elemailer banner
  */
-function void_cf7_email_with_elementor_admin_notice()
+function void_cf7_with_elementor_recomended_admin_notice()
 {
-    $temporary_hide = esc_url( get_admin_url() . '?void_cf7_email_with_elementor=1' );
-    $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_email_with_elementor_never=1' );
-    $elemailer_link = esc_url( 'https://elemailer.com/?utm_source=void-cf7-dashboard&utm_medium=wpdashboard&utm_campaign=general&utm_id=cf7-2021' );
-    $banner_url     = CF7_WIDGET_E_PLUGIN_URL . '/assets/banner-with-elemailer.png';
+    $temporary_hide = esc_url( get_admin_url() . '?void_cf7_with_elementor_ran=1' );
+    $dont_disturb   = esc_url( get_admin_url() . '?void_cf7_with_elementor_ran_never=1' );
+    
+    if ( is_plugin_active( 'elemailer-lite/elemailer-lite.php' ) || is_plugin_active( 'elemailer/elemailer.php' ) ) {
+        return true;
+    }
+
+    $install_url = wp_nonce_url( add_query_arg( array( 'action' => 'activate', 'plugin' => urlencode( 'elemailer-lite/elemailer-lite.php' ) ), admin_url( 'plugins.php' ) ), 'activate-plugin_elemailer-lite/elemailer-lite.php' );
+    $text = esc_html__( 'Active Elemailer Lite', 'void' );
+
+    if ( is_wp_error( validate_plugin( 'elemailer-lite/elemailer-lite.php' ) ) ) {
+        $install_url = wp_nonce_url( add_query_arg( array( 'action' => 'install-plugin', 'plugin' => 'elemailer-lite' ), admin_url( 'update.php' ) ), 'install-plugin_elemailer-lite' );
+        $text        = esc_html__( 'Install Elemailer Lite', 'void' );
+    }
     ?>
-    <div class="notice" style="border: none; padding: 0px; position: relative;">
-        <a style="display:flex;" href="<?php echo $elemailer_link; ?>" target="_blank">
-            <img src="<?php echo esc_attr( $banner_url ); ?>" alt="elemailer-promotion-2021" style="width: 100%;">
-        </a>
+    <div class="notice error void-cf7-license-notice">
+        <div class="void-cf7-license-notice__logo">
+            <img src="<?php echo CF7_WIDGET_E_PLUGIN_URL; ?>/assets/elemailer-logo.png" alt="Elemail Logo">
+        </div>
+        <div class="void-cf7-license-notice__message">
+            <h3><?php esc_html_e( 'Design your contact form 7 emails with Elementor', 'void' ); ?></h3>
+            
+            <a class="button" href="<?php echo esc_url( 'https://wordpress.org/plugins/elemailer-lite/' ); ?>"><?php esc_html_e( 'View Details', 'void' ); ?></a>
+        </div>
+
+        <div class="void-cf7-license-notice__button">
+            <a class="button" href="<?php echo $install_url; ?>"><?php echo esc_html( $text ); ?></a>
+        </div>
+
         <a href="<?php echo $temporary_hide; ?>">
             <button type="button" class="notice-dismiss"><span class="screen-reader-text"> <?php esc_html_e( 'Dismiss this notice.', 'void' ); ?></span></button>
         </a>
-        <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 10px; bottom: 10px; color: #696969a8;"><?php esc_html_e( 'Never show', 'void' ) ?></span></a>
+        <a href="<?php echo $dont_disturb; ?>"><span class="void-cf7-elemailer-promotion-never-show" style="position: absolute; right: 37px; bottom: 10px; color: #696969a8;"><?php esc_html_e( 'Never show again', 'void' ) ?></span></a>
     </div>
+
+    <style>
+        .notice.void-cf7-license-notice {
+            display: flex;
+            align-items: center;
+            padding: 15px 10px;
+            border: 1px solid #e4e4e4;
+            border-left: 4px solid #fb6e76;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            position: relative;
+        }
+
+        .void-cf7-license-notice__logo {
+            margin-right: 50px;
+        }
+
+        .void-cf7-license-notice__logo img {
+            width: 200px;
+            height: auto;
+        }
+
+        .void-cf7-license-notice__message {
+            flex-basis: 100%;
+        }
+
+        .void-cf7-license-notice__button {
+            padding: 0 25px;
+        }
+
+        .void-cf7-license-notice__button .button {
+            background: #071C74;
+            color: #fff;
+            border-color: #071C74;
+            font-size: 15px;
+            padding: 3px 15px;
+        }
+
+        .void-cf7-license-notice__button .button:hover {
+            background: #1538cb;
+            color: #fff;
+            border-color: #1538cb;
+        }
+    </style>
     <?php
 }
 
@@ -204,22 +268,25 @@ function void_cf7_spare_me()
         }
     }
 
-    if ( isset( $_GET['void_cf7_email_with_elementor'] ) && ! empty( $_GET['void_cf7_email_with_elementor'] ) ) {
-        if ( 1 === absint( $_GET['void_cf7_email_with_elementor'] ) ) {
-            update_option( 'void_cf7_email_with_elementor', 'yes' );
-            update_option( 'void_cf7_email_with_elementor_time', strtotime("now") );
+    if ( isset( $_GET['void_cf7_with_elementor_ran'] ) && ! empty( $_GET['void_cf7_with_elementor_ran'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_with_elementor_ran'] ) ) {
+            update_option( 'void_cf7_with_elementor_ran', 'yes' );
+            update_option( 'void_cf7_with_elementor_ran_time', strtotime("now") );
         }
     }
 
-    if ( isset( $_GET['void_cf7_email_with_elementor_never'] ) && ! empty( $_GET['void_cf7_email_with_elementor_never'] ) ) {
-        if ( 1 === absint( $_GET['void_cf7_email_with_elementor_never'] ) ) {
-            update_option( 'void_cf7_email_with_elementor_never', 'yes' );
+    if ( isset( $_GET['void_cf7_with_elementor_ran_never'] ) && ! empty( $_GET['void_cf7_with_elementor_ran_never'] ) ) {
+        if ( 1 === absint( $_GET['void_cf7_with_elementor_ran_never'] ) ) {
+            update_option( 'void_cf7_with_elementor_ran_never', 'yes' );
         }
     }
 
     delete_option( 'void_cf7_elep_2021_temporary' );
     delete_option( 'void_cf7_elep_2021_temporary_time' );
     delete_option( 'void_cf7_elep_2021_never' );
+    delete_option( 'void_cf7_email_with_elementor_never' );
+    delete_option( 'void_cf7_email_with_elementor' );
+    delete_option( 'void_cf7_email_with_elementor_time' );
 }
 add_action('admin_init', 'void_cf7_spare_me', 5);
 
