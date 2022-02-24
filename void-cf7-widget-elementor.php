@@ -194,7 +194,7 @@ function void_cf7_with_elementor_recomended_admin_notice()
     ?>
     <div class="notice error void-cf7-license-notice">
         <div class="void-cf7-license-notice__logo">
-            <img src="<?php echo CF7_WIDGET_E_PLUGIN_URL; ?>/assets/elemailer-logo.png" alt="Elemail Logo">
+            <img src="<?php echo CF7_WIDGET_E_PLUGIN_URL; ?>/assets/elemailer-logo.png" alt="Elemailer Logo">
         </div>
         <div class="void-cf7-license-notice__message">
             <h3><?php esc_html_e( 'Design your contact form 7 emails with Elementor', 'void' ); ?></h3>
