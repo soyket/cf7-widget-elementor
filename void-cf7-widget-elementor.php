@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Void Contact Form 7 Widget For Elementor Page Builder
  * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with Contact Form 7
- * Version:     2.0
+ * Version:     2.1
  * Author:      voidCoders
  * Plugin URI:  https://voidcoders.com/product/contact-form7-widget-for-elementor-free/
  * Author URI:  https://voidcoders.com
@@ -16,7 +16,7 @@ use Account\AccountDataFactory;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('CF7_WIDGET_E_VERSION', '2.0');
+define('CF7_WIDGET_E_VERSION', '2.1');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 
@@ -199,7 +199,7 @@ function void_cf7_with_elementor_recomended_admin_notice()
         <div class="void-cf7-license-notice__message">
             <h3><?php esc_html_e( 'Design your contact form 7 emails with Elementor', 'void' ); ?></h3>
             
-            <a class="button" href="<?php echo esc_url( 'https://wordpress.org/plugins/elemailer-lite/' ); ?>"><?php esc_html_e( 'View Details', 'void' ); ?></a>
+            <a class="button" target="_blank" href="<?php echo esc_url( 'https://wordpress.org/plugins/elemailer-lite/' ); ?>"><?php esc_html_e( 'View Details', 'void' ); ?></a>
         </div>
 
         <div class="void-cf7-license-notice__button">
