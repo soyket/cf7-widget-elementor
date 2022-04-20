@@ -47,7 +47,7 @@ class Plugin {
 	 * @access private
 	 */
 	private function add_actions() {
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'on_widgets_registered' ] );
+		add_action( 'elementor/widgets/register', [ $this, 'on_widgets_registered' ] );
 
 	}
 
@@ -86,7 +86,7 @@ class Plugin {
 	 * @access private
 	 */
 	private function register_widget() {    
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new void_cf7() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new void_cf7() );
 	}
 }
 
