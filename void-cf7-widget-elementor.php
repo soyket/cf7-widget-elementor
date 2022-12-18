@@ -3,20 +3,20 @@
 /**
  * Plugin Name: Void Contact Form 7 Widget For Elementor Page Builder
  * Description: Adds Contact Form 7 widget element to Elementor page builder for easy drag & drop the created contact forms with Contact Form 7
- * Version:     2.1.1
+ * Version:     2.2
  * Author:      voidCoders
  * Plugin URI:  https://voidcoders.com/product/contact-form7-widget-for-elementor-free/
  * Author URI:  https://voidcoders.com
  * Text Domain: void
- * Elementor tested up to: 3.6.4
- * Elementor Pro tested up to: 3.6.5
+ * Elementor tested up to: 4.0
+ * Elementor Pro tested up to: 4.0
  */
 
 use Account\AccountDataFactory;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('CF7_WIDGET_E_VERSION', '2.1');
+define('CF7_WIDGET_E_VERSION', '2.2');
 define('CF7_WIDGET_E_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('CF7_WIDGET_E_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 
@@ -58,7 +58,7 @@ function void_cf7_widget_notice()
             <?php endif; ?>
 
             <?php if (file_exists(WP_PLUGIN_DIR . '/contact-form-7/wp-contact-form-7.php') && !is_plugin_active('contact-form-7/wp-contact-form-7.php')) : ?>
-                <p><?php echo sprintf(__('<a href="%s" class="button button-primary">Active</a> <b>Contact Form 7</b> now to start working with <b>"Void Contact Form 7 Widget"</b>'), wp_nonce_url('plugins.php?action=activate&plugin=contact-form-7/wp-contact-form-7.php&plugin_status=all&paged=1', 'activate-plugin_contact-form-7/wp-contact-form-7.php')); ?></p>
+                <p><?php echo sprintf(__('<b>Void Contact Form 7 Widget</b> needs  <b>Contact Form 7</b> plugin to be activated. <a href="%s" class="button button-primary">Active Now</a>'), wp_nonce_url('plugins.php?action=activate&plugin=contact-form-7/wp-contact-form-7.php&plugin_status=all&paged=1', 'activate-plugin_contact-form-7/wp-contact-form-7.php')); ?></p>
             <?php elseif (!file_exists(WP_PLUGIN_DIR . '/contact-form-7/wp-contact-form-7.php')) : ?>
                 <p><?php echo sprintf(__('<b>Contact Form 7</b>  must be installed and activated for <b>"Void Contact Form 7 Widget"</b> to work. <a href="%s" class="button button-primary">Install Now</a>'), wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=contact-form-7'), 'install-plugin_contact-form-7')); ?></p>
             <?php endif; ?>
@@ -301,60 +301,3 @@ function void_cf7_admin_css()
     }
 }
 add_action('admin_enqueue_scripts', 'void_cf7_admin_css');
-
-// opt in track
-require_once 'analyst/main.php';
-
-analyst_init(array(
-    'client-id' => 'nwmkv57dvw5blag6',
-    'client-secret' => 'd76789221c6c0faec9b684a1ad75cb970a89a8df',
-    'base-dir' => __FILE__
-));
-
-// notice for track
-function void_cf7_opt_in_user_data_track()
-{
-    // get data factory instance
-    $account_data_factory = AccountDataFactory::instance();
-    // get account data by using datafactory object
-    $account_data = $account_data_factory->getAccountDataByBasePath(plugin_basename( __FILE__ ));
-    // retrun if account data is not present for this folder
-    if(!isset($account_data)){ return; } 
-    // account has private property
-    // so, use this object to get those by it's public method
-    $opted_in = $account_data->isOptedIn();
-    $is_signed = $account_data->isSigned();
-    $id = $account_data->getId();
-
-    // notice dismiss date form database
-    $db_dismiss_date = get_option('dismissed-void-cf7-usage-data-track-at');
-    // create a date object from database date
-    $dismiss_date = date_create($db_dismiss_date);
-    // create a current date object
-    $current_date = date_create(date('Y-m-d'));
-    // get difference of both date
-    $diff = date_diff($dismiss_date, $current_date);
-    // make conditional days. if date found in database, it will be 30.
-    // otherwise it will be 0. Becase difference return 0 if there was no data on database
-    $conditional_days = ($db_dismiss_date) ? 15 : 0;
-
-    if (!$opted_in && $diff->days >= $conditional_days) : ?>
-        <div class="notice notice-warning is-dismissible void-cf7-widget-data-track-notice" data-notice="void-cf7-usage-data-track" data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
-            <p class="void-cf7-notice-text"><?php esc_html_e('We hope that you enjoy using our plugin Contact Form 7 Widget For Elementor Page Builder. If you agree we want to get some', 'void'); ?></p>
-            <div class="void-cf7-non-sensitive"><?php esc_html_e('non sensitive', 'void'); ?>
-                <span class="void-cf7-non-sensitive-tooltip">
-                    <ul>
-                        <li><?php esc_html_e('Your profile information (name and email).', 'void'); ?></li>
-                        <li><?php esc_html_e('Your site information (URL, WP version, PHP info, plugins & themes).', 'void'); ?></li>
-                        <li><?php esc_html_e('Plugin notices (updates, announcements, marketing, no spam)', 'void'); ?></li>
-                        <li><?php esc_html_e('Plugin events (activation, deactivation and uninstall)', 'void'); ?></li>
-                    </ul> ​
-                ​</span>
-            </div>
-            <p class="void-cf7-notice-text"><?php esc_html_e('data from you to improve our plugin and keep you updated with security and other fixes time to time.', 'void'); ?></p>
-            <p class="void-cf7-notice-text"><a class="analyst-action-opt analyst-opt-in" analyst-plugin-id="<?php echo esc_attr($id); ?>" analyst-plugin-signed="<?php echo esc_attr($is_signed); ?>"><?php esc_html_e('Opt In', 'void'); ?></a></p>
-        </div>
-<?php endif;
-}
-
-add_action('admin_notices', 'void_cf7_opt_in_user_data_track');
