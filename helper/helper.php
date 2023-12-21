@@ -24,6 +24,13 @@ endif;
 if( !function_exists('get_contact_form_7_posts_by_ajax')) {
 
   function get_contact_form_7_posts_by_ajax(){
+
+  $nonce = $_POST['vcf7Nonce'];
+
+  if (!current_user_can('manage_options') || !wp_verify_nonce( $nonce, 'wp_rest' )) {
+      wp_die( 'You are not allowed!');
+  }
+
 	$cf7_form_list = get_contact_form_7_posts();
 	echo json_encode($cf7_form_list);
 	wp_die();
@@ -60,6 +67,13 @@ endif;
 if( !function_exists('promotional_notice_dismiss_handler')){
   
   function promotional_notice_dismiss_handler(){
+
+
+    if ( !current_user_can('manage_options')  ) {
+            // This nonce is not valid.
+            die( __( 'Nice try!', 'void' ) ); 
+    }
+
     // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
     $type = $_POST['type'];
   
@@ -84,6 +98,10 @@ add_action('wp_ajax_dismissed_promotional_notice_handler', 'promotional_notice_d
 if( !function_exists('dismissed_usage_data_track_void_cf7')){
   
   function dismissed_usage_data_track_void_cf7(){
+     if ( !current_user_can('manage_options')  ) {
+            // This nonce is not valid.
+            die( __( 'Nice try!', 'void' ) ); 
+    }
     // Pick up the notice "type" - passed via jQuery (the "data-notice" attribute on the notice)
     $type = sanitize_text_field($_POST['type']);
   

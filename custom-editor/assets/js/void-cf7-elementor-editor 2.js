@@ -102,7 +102,8 @@
                 url: voidCf7Admin.ajaxUrl,
                 type: 'POST',
                 data: {
-                    action: 'void_cf7_data'
+                    action: 'void_cf7_data',
+                    vcf7Nonce: voidCf7Admin.wpRestNonce,
                 },
                 // wp verify nonce automatically after sending nonce like this
                 headers: {

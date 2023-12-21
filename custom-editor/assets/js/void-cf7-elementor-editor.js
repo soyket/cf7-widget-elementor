@@ -101,8 +101,9 @@
                 // url of ajax request, value of voidCf7Admin.ajaxUrl is localized during enqueue script
                 url: voidCf7Admin.ajaxUrl,
                 type: 'POST',
-                data: {
-                    action: 'void_cf7_data'
+                 data: {
+                    action: 'void_cf7_data',
+                    vcf7Nonce: voidCf7Admin.wpRestNonce,
                 },
                 // wp verify nonce automatically after sending nonce like this
                 headers: {
