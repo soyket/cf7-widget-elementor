@@ -81,10 +81,10 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new widget category i
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
-= 2.4.1=
+= 2.4.1 =
 * Fix: changed redirect input type from text to URL to amend security concern
-= 2.4=
-* Fix: Compatilbity with latest wp version
+= 2.4 =
+* Fix: Compatibility with latest wp version
 * Fix: Broken access control issue (minor)
 = 2.3 =
 * Fix: Elementor latest version compatibility
