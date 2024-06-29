@@ -305,7 +305,7 @@ protected function register_controls() {
 			[
 				'label' => __( 'On Success External URL Redirect', 'void' ),
 				'description' => esc_html__('Insert the external URL where you want users to redirect to when the contact form is submitted and is successful. Leave Blank to Disable','void'),
-				'type' => \Elementor\Controls_Manager::TEXT,
+				'type' => \Elementor\Controls_Manager::URL,
 				'placeholder' => __( 'https://voidcoders.com', 'void' ),
 				'label_block' => 1,
 			]
@@ -1668,8 +1668,8 @@ protected function register_controls() {
  			        var theform = document.querySelector('.void-cf7-<?php echo $v_veriable; ?>');
 						theform.addEventListener( 'wpcf7mailsent', function( event ) {
 					    location = '<?php 
-					    if( !empty($settings['cf7_redirect_external']) ){
-							echo $settings['cf7_redirect_external'];
+					    if( !empty($settings['cf7_redirect_external']['url']) ){
+							echo esc_url( $settings['cf7_redirect_external']['url'] );
 					    }else{
 					    	 echo get_permalink( $settings['cf7_redirect_page'] );
 					    }

@@ -3,7 +3,7 @@ Contributors: voidthemes,voidcoders,soyket,shawon786
 Tags: contact form, elementor, cf7, contact-form-7, contact-form-7 widget, page-builder, widget, elementor add on, email, contact, form
 Requires at least: 4.4
 Tested up to: 6.4.2
-Stable tag: 2.4
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,8 @@ Our Contact Form7 Widget For Elementor Page Builder adds a new widget category i
 Update the plugin either via wp dashboard or via FTP. After update make sure you clear your browser cache. 
 
 == Changelog ==
+= 2.4.1=
+* Fix: changed redirect input type from text to URL to amend security concern
 = 2.4=
 * Fix: Compatilbity with latest wp version
 * Fix: Broken access control issue (minor)
