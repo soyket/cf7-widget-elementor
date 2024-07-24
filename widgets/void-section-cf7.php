@@ -1657,7 +1657,9 @@ protected function register_controls() {
 
 		$settings = $this->get_settings();
 
-        if(!empty($settings['cf7'])){
+
+        if(!empty($settings['cf7']) && array_key_exists( $settings['cf7'] ,get_contact_form_7_posts() ) ){	
+
     	   echo'<div class="void-cf7-form-widget-wrapper elementor-shortcode void-cf7-'.$v_veriable.'" data-void-cf7-contact-form-id="'. $settings['cf7'] .'">';
                 echo do_shortcode('[contact-form-7 id="'.$settings['cf7'].'"]');    
            echo '</div>';  
